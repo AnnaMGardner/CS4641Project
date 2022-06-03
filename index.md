@@ -18,7 +18,7 @@ Markdown: (https://docs.github.com/en/github/writing-on-github/getting-started-w
 
 ## Discussion
 
-## References (at least 3 - peer reviewed)
+## References (at least 3 - peer reviewed) (Zhenming)
 1 stroke prediction method from literature (method)
 1 medical predicion method (method)
 1 medical paper on strokes and risks for strokes (expected results resource)
