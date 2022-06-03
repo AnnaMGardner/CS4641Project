@@ -8,17 +8,17 @@ Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://j
 Good example: https://jiajunmao.github.io/4641-Project/
 Markdown: (https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
 
-### Summary (infographic with project goal
+## Summary (infographic with project goal) (Yawen)
 
 ## Introduction (Yawen)
 
-## Methods (Anna, 
+## Methods (Anna, Zhenming)
 
-## Results
+## Results (predicion of outcome) (Emma)
 
-## Discussion 
+## Discussion (Emma)
 
-## References (at least 3 - peer reviewed) (Zhenming)
+## References (at least 3 - peer reviewed) (Anna, Zhenming)
 1 stroke prediction method from literature (method)
 1 medical predicion method (method)
 1 medical paper on strokes and risks for strokes (expected results resource)
