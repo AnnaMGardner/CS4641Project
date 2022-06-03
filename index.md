@@ -15,7 +15,7 @@ Markdown: (https://docs.github.com/en/github/writing-on-github/getting-started-w
 ## Methods (Anna, Zhenming)
 
 ## Results (predicion of outcome) (Emma)
-
+(what results are you trying to achieve? )
 ## Discussion (Emma)
 (best outcome, what it would mean, what is next.....
 ## References (at least 3 - peer reviewed) (Anna, Zhenming)
