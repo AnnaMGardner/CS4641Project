@@ -10,7 +10,7 @@ Markdown: (https://docs.github.com/en/github/writing-on-github/getting-started-w
 
 ### Summary (infographic with project goal
 
-## Introduction 
+## Introduction (Yawen)
 
 ## Methods (Anna, 
 
