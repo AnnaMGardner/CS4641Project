@@ -17,7 +17,7 @@ Markdown: (https://docs.github.com/en/github/writing-on-github/getting-started-w
 ## Results (predicion of outcome) (Emma)
 
 ## Discussion (Emma)
-
+(best outcome, what it would mean, what is next.....
 ## References (at least 3 - peer reviewed) (Anna, Zhenming)
 1 stroke prediction method from literature (method)
 1 medical predicion method (method)
