@@ -16,7 +16,7 @@ Markdown: (https://docs.github.com/en/github/writing-on-github/getting-started-w
 
 ## Results
 
-## Discussion (Yawen)
+## Discussion 
 
 ## References (at least 3 - peer reviewed) (Zhenming)
 1 stroke prediction method from literature (method)
