@@ -1,10 +1,32 @@
-## Welcome to GitHub Pages
+## Stroke Prediction
 
 You can use the [editor on GitHub](https://github.com/AnnaMGardner/CS4641Project/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
 
 Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
-### Markdown
+600 words max
+Good example: https://jiajunmao.github.io/4641-Project/
+
+### Summary (infographic with project goal
+
+## Introduction 
+
+## Methods (Anna, 
+
+## Results
+
+## Discussion
+
+## References (at least 3 - peer reviewed)
+1 stroke prediction method from literature (method)
+1 medical predicion method (method)
+1 medical paper on strokes and risks for strokes (expected results resource)
+1 dataset itself
+
+
+
+
+
 
 Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
 
