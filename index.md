@@ -12,6 +12,12 @@ Markdown: (https://docs.github.com/en/github/writing-on-github/getting-started-w
 
 ## Introduction (Yawen)
 
+*Yawen 2022-06-05 6:53pm edits:*  
+
+As one of the popular diseases, stroke affects the arteries within and leading to the brain. Globally, stroke is the second leading cause of death, accounting for approximately 11% of all deaths, according to the World Health Organization (WHO). There are many factors that can be used to predict a patient's risk of stroke, including high blood pressure, smoking, diabetes, high cholesterol levels, heavy drinking, high salt and fat diets, and lack of exercise. And most importantly, older people are more easily to have stroke than younger people. In addition, those who have already suffered a stroke are at greater risk of experiencing another. Therefore, it becomes possible for us to predict whether a person has high possibility to get stroke or not based on previous dataset. Our results can also remind people who have similar conditions to change their life styles to avoid stroke.
+
+*end of edit*  
+
 ## Methods (Anna, Zhenming)
 
 *Zhenming 2022-06-04 10:21pm edits:*  
