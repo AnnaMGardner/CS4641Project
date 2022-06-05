@@ -14,17 +14,41 @@ Markdown: (https://docs.github.com/en/github/writing-on-github/getting-started-w
 
 ## Methods (Anna, Zhenming)
 
+*Zhenming 2022-06-04 10:21pm edits:*  
+
+The stroke prediction dataset [1] will be used in this project. There are a total of 5110 row (number of samples) and 12 columns with 11 features and one target column. The feature columns include physiological information that is commonly believed to be relative to the chance of getting stroke and the target column indicates whether a stroke risk is identified. In this project, we will first use unsupervised learning to seek potential pattern between the 11 features, followed by supervised learning aiming to detect and predict the risk of having stroke.   
+
+Some common machine learning algorithms used for stroke prediction include Decision Tree, Voting Classifier[2], and Random Forecast, Logistic Regression [3]. Throughout this project, we will construct alternative models based on the above algorithms, and compare the accuracy and precision of each method. As we further study the given data set, a data preprocess may be performed, if necessary, to remove unwanted outliers and noises.
+
+*end of edit*  
+
+
 ## Results (predicion of outcome) (Emma)
 (what results are you trying to achieve? )
 ## Discussion (Emma)
 (best outcome, what it would mean, what is next.....
 ## References (at least 3 - peer reviewed) (Anna, Zhenming)
-1 stroke prediction method from literature (method)
-1 medical predicion method (method)
-1 medical paper on strokes and risks for strokes (expected results resource)
-1 dataset itself
+
+*Zhenming 2022-06-04 10:21pm edit:*  
+
+***dataset:***  
+[1]“Stroke prediction dataset,” [Online]. Available: https://www.kaggle.com/fedesoriano/stroke-prediction-dataset.  
+
+***ML 1: This paper used the same dateset we are using. LOL. This one use be very useful!***  
+[2] Tahia Tazin, Md Nur Alam, Nahian Nakiba Dola, Mohammad Sajibul Bari, Sami Bourouis, Mohammad Monirujjaman Khan, "Stroke Disease Detection and Prediction Using Robust Learning Approaches", Journal of Healthcare Engineering, vol. 2021, Article ID 7633381, 12 pages, 2021. https://doi.org/10.1155/2021/7633381.  
+
+***ML2:***  
+[3] JoonNyung Heo, Jihoon Yoon, Hyungjong Park, Young Kim, Hyo Suk Nam, Ji Hoe Heo. "Machine Learning–Based Model for Prediction of Outcomes in Acute Stroke". Stroke. 50. 1263–1265, 2019 http://doi.org/10.1161/STROKEAHA.118.024293.  
+
+***Medical: Table 2 gives most common symptoms and signs of stroke.***  
+[4] Yew, Kenneth S, and Eric Cheng. “Acute stroke diagnosis.” American family physician vol. 80,1 (2009): 33-40. http://www.ncbi.nlm.nih.gov/pmc/articles/pmc2722757/  
+
+*end of edit*
 
 
+1 stroke prediction method from literature (method)  
+1 medical predicion method (method)  
+1 medical paper on strokes and risks for strokes (expected results resource) dataset itself  
 
 
 
