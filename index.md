@@ -16,7 +16,7 @@ Markdown: (https://docs.github.com/en/github/writing-on-github/getting-started-w
 
 *Zhenming 2022-06-04 10:21pm edits:*  
 
-The stroke prediction dataset [1] will be used in this project. There are a total of 5110 row (number of samples) and 12 columns with 11 features and one target column. The feature columns include physiological information that is commonly believed to be relative to the chance of getting stroke and the target column indicates whether a stroke risk is identified. In this project, we will first use unsupervised learning to seek potential pattern between the 11 features, followed by supervised learning aiming to detect and predict the risk of having stroke.   
+The stroke prediction dataset [1] will be used in this project. There are a total of 5110 row (number of samples) and 12 columns with 11 features and one target column. The feature columns include physiological information believed to be relative to the chance of getting stroke and the target column indicates whether a stroke risk is identified. In this project, we will first use unsupervised learning to seek potential pattern between the 11 features, followed by supervised learning aiming to detect and predict the risk of having stroke.   
 
 Some common machine learning algorithms used for stroke prediction include Decision Tree, Voting Classifier[2], and Random Forecast, Logistic Regression [3]. Throughout this project, we will construct alternative models based on the above algorithms, and compare the accuracy and precision of each method. As we further study the given data set, a data preprocess may be performed, if necessary, to remove unwanted outliers and noises for impoving the final results.
 
