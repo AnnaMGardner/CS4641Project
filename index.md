@@ -9,6 +9,7 @@ Good example: https://jiajunmao.github.io/4641-Project/
 Markdown: (https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
 
 ## Summary (infographic with project goal) (Yawen)
+[Stroke.pdf](https://github.com/AnnaMGardner/CS4641Project/files/8846563/Stroke.pdf)
 
 ## Introduction (Yawen)
 
