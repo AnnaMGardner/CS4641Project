@@ -25,7 +25,7 @@ As one of the popular diseases, stroke affects the arteries within and leading t
 
 The stroke prediction dataset [1] will be used in this project. There are a total of 5110 row (number of samples) and 12 columns with 11 features and one target column. The feature columns include physiological information believed to be relative to the chance of getting a stroke. The feature column contains both string and an integer value. We will use label coding to convert any string value to an integer value for better interpretation of the dataset. The target column is a 1-D array of boolean values indicating whether stroke risk is identified.  
 
-The raw data is unbalanced: 249 data points identify the chance of stroke, and 4821 data points have no stroke risk. We will preprocess the dataset with the synthetic minority oversampling technique (SMOTE) to balance the data [5]. The processed data will be split into two segments, with 80%  for training and the remaining for testing.
+The raw data is unbalanced: 249 data points identify the chance of stroke, and 4821 data points have no stroke risk. We will preprocess the dataset with the synthetic minority oversampling technique (SMOTE) to balance the data [6]. The processed data will be split into two segments, with 80%  for training and the remaining for testing.
 
 To analyze the dataset, we will start with t-distributed stochastic neighbor embedding, an unsupervised learning method to visualize high dimension data to find the potential correlation between different features. Followed by supervised learning, aiming to diagnose and predict stroke risk.
 
@@ -36,13 +36,16 @@ Common supervised algorithms used for stroke prediction include Decision Tree, V
 
 ## Results (predicion of outcome) (Emma)
 *Anna 2022-07-06 2:27pm edits:*
-The expected outcome of our dataset stochastic neighbor embedding is that there will exist clusters of similar patient datapoints. These clusters represent patients who have similar health feature values. Given these similarities, one or more of these clusters may represent patients with high risk of stroke. 
+The expected outcome of our dataset stochastic neighbor embedding is that there will exist clusters of similar patient datapoints. These clusters represent patients who have similar health feature values. Given these similarities, one or more of these clusters may represent patients with high risk of stroke. The expected relationship between health features and stroke likelihood is expected to reflect known stroke risk factors including age,  [5].
 Additionally, the expected outcome of a supervised algorithm for stroke predicion is a binary classification and prediction of the data point's stroke value. Given the relatively small size of the dataset and the need for synthetic minority data creation, we aim for an accuracy of 80% for our test data. 
 
 (what results are you trying to achieve? )
 ## Discussion (Emma)
 (best outcome, what it would mean, what is next.....
-That would be able to display 
+Reaching a prediction accuracy of over 80% for stroke risk would mean that from a simple set of health measurements, this model can identify a person at high risk for stroke. This would indicate that that individual should take preventative measures for strokes. 
+The results from unsupervised learning 
+An unsupervised and supervised analysis of this dataset will 
+Additionally, with a trained supervised model of high accuracy stroke prediction, we aim to create a stroke risk calculator which can non-medically predict the likelikood of patient stroke given blood glucose levels, age, and the other features from our training set. 
 
 *end of edit*
 ## References (at least 3 - peer reviewed) (Anna, Zhenming)
@@ -61,11 +64,15 @@ That would be able to display
 ***Medical: Table 2 gives most common symptoms and signs of stroke.***  
 [4] Yew, Kenneth S, and Eric Cheng. “Acute stroke diagnosis.” American family physician vol. 80,1 (2009): 33-40. http://www.ncbi.nlm.nih.gov/pmc/articles/pmc2722757/  
 
+[5] Boehme, Amelia K et al. “Stroke Risk Factors, Genetics, and Prevention.” Circulation research vol. 120,3 (2017): 472-495. doi:10.1161/CIRCRESAHA.116.308398
+
 *end of edit*
 
-***Preprocessing:***
 *Anna 2022-07-06 2:27pm edit:*
-[5] Chawla, Nitesh & Bowyer, Kevin & Hall, Lawrence & Kegelmeyer, W.. (2002). SMOTE: Synthetic Minority Over-sampling Technique. J. Artif. Intell. Res. (JAIR). 16. 321-357. 10.1613/jair.953. 
+
+***Preprocessing:***
+[6] Chawla, Nitesh & Bowyer, Kevin & Hall, Lawrence & Kegelmeyer, W.. (2002). SMOTE: Synthetic Minority Over-sampling Technique. J. Artif. Intell. Res. (JAIR). 16. 321-357. 10.1613/jair.953. 
+
 *end of edit*
 
 
