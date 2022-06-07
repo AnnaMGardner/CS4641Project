@@ -4,6 +4,7 @@ Anna Gardner, Emma Long, Zhenming Liu, Yawen Tan
 ![stroke pic](Stroke_Web.png)
 
 ## Infographic
+![Infographic](Infographic.png)
 [Stroke.pdf](https://github.com/AnnaMGardner/CS4641Project/files/8846563/Stroke.pdf)
 
 ## Introduction 
