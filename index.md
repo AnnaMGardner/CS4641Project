@@ -25,7 +25,7 @@ As one of the popular diseases, stroke affects the arteries within and leading t
 
 The stroke prediction dataset [1] will be used in this project. There are a total of 5110 row (number of samples) and 12 columns with 11 features and one target column. The feature columns include physiological information believed to be relative to the chance of getting a stroke. The feature column contains both string and an integer value. We will use label coding to convert any string value to an integer value for better interpretation of the dataset. The target column is a 1-D array of boolean values indicating whether stroke risk is identified.  
 
-The raw data is unbalanced: 249 data points identify the chance of stroke, and 4821 data points have no stroke risk. We will preprocess the dataset with the synthetic minority oversampling technique (SMOTE) to balance the data. The processed data will be split into two segments, with 80%  for training and the remaining for testing.
+The raw data is unbalanced: 249 data points identify the chance of stroke, and 4821 data points have no stroke risk. We will preprocess the dataset with the synthetic minority oversampling technique (SMOTE) to balance the data [5]. The processed data will be split into two segments, with 80%  for training and the remaining for testing.
 
 To analyze the dataset, we will start with t-distributed stochastic neighbor embedding, an unsupervised learning method to visualize high dimension data to find the potential correlation between different features. Followed by supervised learning, aiming to diagnose and predict stroke risk.
 
@@ -35,9 +35,16 @@ Common supervised algorithms used for stroke prediction include Decision Tree, V
 
 
 ## Results (predicion of outcome) (Emma)
+*Anna 2022-07-06 2:27pm edits:*
+The expected outcome of our dataset stochastic neighbor embedding is that there will exist clusters of similar patient datapoints. These clusters represent patients who have similar health feature values. Given these similarities, one or more of these clusters may represent patients with high risk of stroke. 
+Additionally, the expected outcome of a supervised algorithm for stroke predicion is a binary classification and prediction of the data point's stroke value. Given the relatively small size of the dataset and the need for synthetic minority data creation, we aim for an accuracy of 80% for our test data. 
+
 (what results are you trying to achieve? )
 ## Discussion (Emma)
 (best outcome, what it would mean, what is next.....
+That would be able to display 
+
+*end of edit*
 ## References (at least 3 - peer reviewed) (Anna, Zhenming)
 
 *Zhenming 2022-06-04 10:21pm edit:*  
@@ -56,12 +63,10 @@ Common supervised algorithms used for stroke prediction include Decision Tree, V
 
 *end of edit*
 
-
-1 stroke prediction method from literature (method)  
-1 medical predicion method (method)  
-1 medical paper on strokes and risks for strokes (expected results resource) dataset itself  
-
-
+***Preprocessing:***
+*Anna 2022-07-06 2:27pm edit:*
+[5] Chawla, Nitesh & Bowyer, Kevin & Hall, Lawrence & Kegelmeyer, W.. (2002). SMOTE: Synthetic Minority Over-sampling Technique. J. Artif. Intell. Res. (JAIR). 16. 321-357. 10.1613/jair.953. 
+*end of edit*
 
 
 Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
@@ -83,13 +88,3 @@ Syntax highlighted code block
 
 [Link](url) and ![Image](src)
 ```
-
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/AnnaMGardner/CS4641Project/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
