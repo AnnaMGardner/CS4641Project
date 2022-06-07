@@ -1,11 +1,9 @@
-# 4641 Project --- Stroke Prediction
 Anna Gardner, Emma Long, Zhenming Liu, Yawen Tan
 
 ![stroke pic](Stroke_Web.png)
 
 ## Infographic
 ![Infographic](Infographic.png)
-[Stroke.pdf](https://github.com/AnnaMGardner/CS4641Project/files/8846563/Stroke.pdf)
 
 ## Introduction 
 Strokes are one of the most common diseases. They affect the arteries within and leading to the brain. Globally, strokes are the second leading cause of death, accounting for approximately 11% of all deaths according to the World Health Organization (WHO). There are many factors that can be used to predict a patient's risk of stroke, including high blood pressure, smoking, diabetes, high cholesterol levels, heavy drinking, high salt and fat diets, and lack of exercise. Most importantly, older people are more likely to suffer from a stroke than younger people. In addition, those who have already had a stroke are at greater risk of experiencing another. Therefore, our team aims to predict whether a patient has a high possibility to get a stroke or not based on a robust dataset. Our results can also remind those who have high-risk health measurements to change their lifestyles to avoid stroke.
