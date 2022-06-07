@@ -1,4 +1,5 @@
-## Stroke Prediction
+# 4641 Project --- Stroke Prediction
+Anna Gardner, Emma Long, Zhenming Liu, Yawen Tan
 
 ![stroke pic](Stroke_Web.png)
 
