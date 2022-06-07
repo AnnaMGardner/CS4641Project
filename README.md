@@ -1,1 +1,1 @@
-# CS4641Project
+# 4641 Project --- Stroke Prediction
