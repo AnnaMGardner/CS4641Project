@@ -35,17 +35,15 @@ Common supervised algorithms used for stroke prediction include Decision Tree, V
 
 
 ## Results (predicion of outcome) (Emma)
+(what results are you trying to achieve? )
 *Anna 2022-07-06 2:27pm edits:*
-The expected outcome of our dataset stochastic neighbor embedding is that there will exist clusters of similar patient datapoints. These clusters represent patients who have similar health feature values. Given these similarities, one or more of these clusters may represent patients with high risk of stroke. The expected relationship between health features and stroke likelihood is expected to reflect known stroke risk factors including age,  [5].
+The expected outcome of our dataset stochastic neighbor embedding is that there will exist clusters of similar patient datapoints. These clusters represent patients who have similar health feature values. Given these similarities, one or more of these clusters may represent patients with high risk of stroke. The expected relationship between health features and stroke likelihood is expected to reflect known stroke risk factors including age, diabetes, and hypertension [5].
 Additionally, the expected outcome of a supervised algorithm for stroke predicion is a binary classification and prediction of the data point's stroke value. Given the relatively small size of the dataset and the need for synthetic minority data creation, we aim for an accuracy of 80% for our test data. 
 
-(what results are you trying to achieve? )
 ## Discussion (Emma)
 (best outcome, what it would mean, what is next.....
-Reaching a prediction accuracy of over 80% for stroke risk would mean that from a simple set of health measurements, this model can identify a person at high risk for stroke. This would indicate that that individual should take preventative measures for strokes. 
-The results from unsupervised learning 
-An unsupervised and supervised analysis of this dataset will 
-Additionally, with a trained supervised model of high accuracy stroke prediction, we aim to create a stroke risk calculator which can non-medically predict the likelikood of patient stroke given blood glucose levels, age, and the other features from our training set. 
+Reaching a prediction accuracy of over 80% for stroke risk would mean that from a simple set of health measurements this model can identify a person at high risk for stroke. This model would then be able to identify which individuals should take preventative measures for strokes. 
+Additionally, with a trained supervised model of high accuracy stroke prediction, we aim to create a stroke risk calculator which can non-medically predict the likelikood of patient stroke. 
 
 *end of edit*
 ## References (at least 3 - peer reviewed) (Anna, Zhenming)
