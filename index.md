@@ -1,6 +1,17 @@
 ## Stroke Prediction
 
 ![stroke pic](Stroke_Web.png)
+# Original dataset
+
+| Total Number of Patient | Total Number of Features  | Stroke or Not? |
+| ----------------------- | ------------------------- | -------------- |
+|           5110          |              9            |       Y/N      |
+
+| Patient ID | Gender | Age | Hypertension | Heart Disease | Ever Married | Work Type | Residence Type | Average Glucose Level | BMI | Smoking Status |
+| ---------- | ------ | --- | ------------ | ------------- | ------------ | --------- | -------------- | --------------------- | --- | -------------- |
+|  67-72940  |   F/M  | 0-82|      Y/N     |      Y/N      |     Y/N      |     4     |  Urban/Rural   |         55-271        |10-97|        4       |
+
+
 You can use the [editor on GitHub](https://github.com/AnnaMGardner/CS4641Project/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
 
 Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
