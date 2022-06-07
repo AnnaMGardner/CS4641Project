@@ -1,7 +1,7 @@
 ## Stroke Prediction
 
 ![stroke pic](Stroke_Web.png)
-# Original dataset
+### Original dataset
 
 | Total Number of Patient | Total Number of Features  | Stroke or Not? |
 | ----------------------- | ------------------------- | -------------- |
