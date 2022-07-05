@@ -1,1 +1,13 @@
+<script>
+var loadedModel = taccgl.objFile().read( '/3d_brain.obj');
+taccgl.actor("braindiv", loadedModel.scene()) . rotateMiddle(0,1,0) .duration(10) .start();
+</script>
+<div id="braindiv"
+ style="width:150px;
+   height:150px;
+   border:1px solid black">
 
+
+Placeholder example DIV
+
+</div>
