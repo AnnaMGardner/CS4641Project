@@ -2,7 +2,7 @@
 <a href="javascript: myanimation(); ">Run</a>
 <script >
 function myanimation() {
-   var loadedModel = taccgl.objFile().read( '/3d_brain.obj');
+   var loadedModel = taccgl.objFile().read( '/CS4641Project/3d_brain.obj');
    taccgl.actor("braindiv", loadedModel.scene()) . rotateMiddle(0,1,0) .duration(10) .start();
 }
 </script>
