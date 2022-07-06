@@ -50,7 +50,7 @@ The elbow method was used to determine the optimal number of clusters for the K-
 Our data was preprocessed with 10 different combinations:
 # Unbalanced data (with label encoding, filled in missing data, and dropped patient id)
 Elbow Method:
-![Unbalanced Data](images/unbalancedDataElbow.jpg){width=20%}
+![Unbalanced Data](images/unbalancedDataElbow.jpg){: height=36 width=36}
 Optimal Clusters = 5
 
 K-Means:
@@ -59,7 +59,7 @@ Cluster Evaluation:
 
 # Balanced data (with label encoding, filled in missing data, and dropped patient id)
 Elbow Method:
-![<img src="balancedDataElbow.jpg" width="150"/>](images/balancedDataElbow.jpg)
+![<img src="images/balancedDataElbow.jpg" width="150"/>](images/balancedDataElbow.jpg)
 Optimal Clusters = 5
 
 K-Means:
