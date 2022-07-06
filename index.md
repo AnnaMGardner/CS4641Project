@@ -27,7 +27,7 @@ Strokes are one of the most common diseases. They affect the arteries within and
 | ---------- | ------ | --- | ------------ | ------------- | ------------ | --------- | -------------- | --------------------- | --- | -------------- |
 |  67-72940  |   F/M  | 0-82|      Y/N     |      Y/N      |     Y/N      |     4     |  Urban/Rural   |         55-271        |10-97|        4       |
 
-### Data Preprocessing
+## Data Preprocessing
 ***guys i think we should have normalized our data***
 The stroke prediction dataset [1] will be used in this project. There are a total of 5110 row (number of samples) and 12 columns with 11 features and one target column. The feature columns include physiological information believed to be relative to the chance of getting a stroke. The feature column contains both string and an integer value. We implemented label coding to convert any string value to an integer value for better interpretation of the dataset. The target column is a 1-D array of boolean values indicating whether stroke risk is identified.  
 Given that this dataset has only 11 features, it is not necessary to perform any dimensionality reduction for clustering analysis or our supervised learning approach. However, there were some missing data points in the BMI feature. These missing datapoints were replaced by the mean BMI of our dataset so as to minimally impact our outcomes. Additionally, the patient ID value is not relevant to stroke likelihood and was removed for our data analysis. Following all of this, we normalized our data using a standard scalar so that the encoded values of our data that was strings would not have a disproportionate impact on our results. This was all of the preprocessing done for our first round of unsupervised analysis. 
@@ -46,9 +46,9 @@ We analyzed the preprocessed dataset using two unsupervised clustering analysis 
 We conducted the K-Means algorithm on both the original dataset and the dataset after T-SNE and PCA. The most important aspect of using this algorithm was to determine if the resulting clusters were useful for classifying specific attributes, in this case stroke risk, for specific groups of people.
 The elbow method was used to determine the optimal number of clusters for the K-Means algorithm, which estimates the improvement for the addition of each cluster. Then we ran the K-Means algorithm for each of these optimal number of clusters.
 
-### K-Means and GMM Results
+## K-Means and GMM Results
 Our data was preprocessed with 10 different combinations:
-# Unbalanced data (with label encoding, filled in missing data, and dropped patient id)
+### Unbalanced data (with label encoding, filled in missing data, and dropped patient id)
 Elbow Method:
 ![Unbalanced Data](images/unbalancedDataElbow.jpg)
 Optimal Clusters = 5
@@ -57,16 +57,16 @@ K-Means:
 
 Cluster Evaluation:
 
-# Balanced data (with label encoding, filled in missing data, and dropped patient id)
+### Balanced data (with label encoding, filled in missing data, and dropped patient id)
 Elbow Method:
-![<img src="images/balancedDataElbow.jpg" width="50"/>](images/balancedDataElbow.jpg)
+<img src="images/balancedDataElbow.jpg" width="50"/>
 Optimal Clusters = 5
 
 K-Means:
 
 Cluster Evaluation:
 
-# 2D TSNE unbalanced data
+### 2D TSNE unbalanced data
 Elbow Method:
 ![2d TSNE Unbalanced](images/2dTSNEUnbalancedElbow.jpg){width=20%}
 Optimal Clusters = 5
@@ -75,7 +75,7 @@ K-Means:
 
 Cluster Evaluation:
 
-# 2D TSNE balanced data
+### 2D TSNE balanced data
 Elbow Method:
 ![2d TSNE Balanced](images/2dTSNEBalancedElbow.jpg){width=20%}
 Optimal Clusters = 5
@@ -84,7 +84,7 @@ K-Means:
 
 Cluster Evaluation:
 
-# 3D TSNE unbalanced data
+### 3D TSNE unbalanced data
 Elbow Method:
 ![3d TSNE Unbalanced](images/3dTSNEUnbalancedElbow.jpg){width=20%}
 Optimal Clusters = 7
@@ -93,7 +93,7 @@ K-Means:
 
 Cluster Evaluation:
 
-# 3D TSNE balanced data
+### 3D TSNE balanced data
 Elbow Method:
 ![3d TSNE Balanced](images/2dTSNEBalancedElbow.jpg){width=20%}
 Optimal Clusters = 7
@@ -102,7 +102,7 @@ K-Means:
 
 Cluster Evaluation:
 
-# 2D PCA unbalanced data
+### 2D PCA unbalanced data
 Elbow Method:
 ![2d PCA Unbalanced](images/2dPCAUnbalancedElbow.jpg){width=20%}
 Optimal Clusters = 5
@@ -111,7 +111,7 @@ K-Means:
 
 Cluster Evaluation:
 
-# 2D PCA balanced data
+### 2D PCA balanced data
 Elbow Method:
 ![2d PCA Balanced](images/2dPCABalancedElbow.jpg){width=20%}
 Optimal Clusters = 5
@@ -120,7 +120,7 @@ K-Means:
 
 Cluster Evaluation:
 
-# 3D PCA unbalanced data
+### 3D PCA unbalanced data
 Elbow Method:
 ![3d PCA Unbalanced](images/3dPCAUnbalancedElbow.jpg){width=20%}
 Optimal Clusters = 5
@@ -129,7 +129,7 @@ K-Means:
 
 Cluster Evaluation:
 
-# 3D PCA balanced data
+### 3D PCA balanced data
 Elbow Method:
 ![3d PCA Balanced](images/3dPCABalancedElbow.jpg){width=20%}
 Optimal Clusters = 7
