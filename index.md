@@ -59,7 +59,7 @@ Cluster Evaluation:
 
 # Balanced data (with label encoding, filled in missing data, and dropped patient id)
 Elbow Method:
-![Balanced Data](images/balancedDataElbow.jpg){width=20%}
+![<img src="balancedDataElbow.jpg" width="150"/>](images/balancedDataElbow.jpg)
 Optimal Clusters = 5
 
 K-Means:
