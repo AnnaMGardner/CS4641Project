@@ -1,4 +1,4 @@
-Anna Gardner, Emma Long, Zhenming Liu, Yawen Tan
+Anna Gardner (Report and Stroke Predictor), Emma Long (K-Means), Zhenming Liu (Data Preprocessing), Yawen Tan (GMM)
 
 ![stroke pic](Stroke_Web.png)
 
@@ -28,16 +28,126 @@ Strokes are one of the most common diseases. They affect the arteries within and
 |  67-72940  |   F/M  | 0-82|      Y/N     |      Y/N      |     Y/N      |     4     |  Urban/Rural   |         55-271        |10-97|        4       |
 
 ### Data Preprocessing
+***guys i think we should have normalized our data***
 The stroke prediction dataset [1] will be used in this project. There are a total of 5110 row (number of samples) and 12 columns with 11 features and one target column. The feature columns include physiological information believed to be relative to the chance of getting a stroke. The feature column contains both string and an integer value. We implemented label coding to convert any string value to an integer value for better interpretation of the dataset. The target column is a 1-D array of boolean values indicating whether stroke risk is identified.  
-Given that this dataset has only 11 features, it is not necessary to perform any dimensionality reduction for clustering analysis or our supervised learning approach. However, there were some missing data points in the BMI feature. These missing datapoints were replaced by the mean BMI of our dataset so as to minimally impact our outcomes. Additionally, the patient ID value is not relevant to stroke likelihood and was removed for our data analysis. This was all of the preprocessing done for our first round of unsupervised analysis. 
-In order to improve visualization ability of our cluster analysis for KMeans and Gaussian Mixture Modeling, however, we also implemented t-distributed stochastic neighbor embedding to reduce the dimensionality of our features to two and three features. We then performed a clustering analysis on these reduced datapoints as well.
-For the supervised learning portion of our project, a major issue in the given dataset is that the raw data is unbalanced. 249 data points identify the chance of stroke, and 4821 data points have no stroke given that stroke likelihood in the average patient is very low. In order to mitigate issues that arise from only 5% of our datapoints being for a patient who suffered from a stroke, we preprocessed the dataset using the synthetic minority oversampling technique (SMOTE) [6]. This increased the amount of datapoints that indicate stroke to 
+Given that this dataset has only 11 features, it is not necessary to perform any dimensionality reduction for clustering analysis or our supervised learning approach. However, there were some missing data points in the BMI feature. These missing datapoints were replaced by the mean BMI of our dataset so as to minimally impact our outcomes. Additionally, the patient ID value is not relevant to stroke likelihood and was removed for our data analysis. Following all of this, we normalized our data using a standard scalar so that the encoded values of our data that was strings would not have a disproportionate impact on our results. This was all of the preprocessing done for our first round of unsupervised analysis. 
+In order to improve visualization ability of our cluster analysis for KMeans and Gaussian Mixture Modeling, however, we also implemented t-distributed stochastic neighbor embedding (T-SNE) to reduce the dimensionality of our features to 2 and 3 features. 
+***include pictures***
+We also performed PCA in order to reduce the dimensionality to 2 and 3 dimensional spaces. We then performed a clustering analysis on these reduced datapoints as well.
+***include pictures***
+For the supervised learning portion of our project, a major issue in the given dataset is that the raw data is unbalanced. 249 data points identify the chance of stroke, and 4821 data points have no stroke given that stroke likelihood in the average patient is very low. In order to mitigate issues that arise from only 5% of our datapoints being for a patient who suffered from a stroke, we preprocessed the dataset using the synthetic minority oversampling technique (SMOTE) [6]. This increased the amount of datapoints that indicate stroke to 50%.
+***include pictures***
 The processed data was split into two segments, with 80%  for training and the remaining for testing.
 
 ## Methods
-To analyze the dataset, we will start with , an unsupervised learning method to visualize high dimension data to find the potential correlation between different features. Followed by supervised learning, aiming to diagnose and predict stroke risk. We will also measure and visualize the statistical relationships between each standalone feature and stroke likelihood.
+We analyzed the preprocessed dataset using two unsupervised clustering analysis approaches for expectation maximization. First we clustered using K-Means, and then with Gaussian Mixture Modeling (GMM).
 
-Common supervised algorithms used for stroke prediction include Decision Tree, Voting Classifier[2], and Random Forecast, Logistic Regression [3]. Throughout this project, we will construct alternative models based on the above algorithms and compare the accuracy and precision of each method. 
+## KMeans Clustering
+We conducted the K-Means algorithm on both the original dataset and the dataset after T-SNE and PCA. The most important aspect of using this algorithm was to determine if the resulting clusters were useful for classifying specific attributes, in this case stroke risk, for specific groups of people.
+The elbow method was used to determine the optimal number of clusters for the K-Means algorithm, which estimates the improvement for the addition of each cluster. Then we ran the K-Means algorithm for each of these optimal number of clusters.
+
+### K-Means and GMM Results
+Our data was preprocessed with 10 different combinations:
+# Unbalanced data (with label encoding, filled in missing data, and dropped patient id)
+Elbow Method:
+![Unbalanced Data](images/unbalancedDataElbow.jpg)
+Optimal Clusters = 5
+
+K-Means:
+
+Cluster Evaluation:
+
+# Balanced data (with label encoding, filled in missing data, and dropped patient id)
+Elbow Method:
+![Balanced Data](images/balancedDataElbow.jpg)
+Optimal Clusters = 5
+
+K-Means:
+
+Cluster Evaluation:
+
+# 2D TSNE unbalanced data
+Elbow Method:
+![2d TSNE Unbalanced](images/2dTSNEUnbalancedElbow.jpg)
+Optimal Clusters = 5
+
+K-Means:
+
+Cluster Evaluation:
+
+# 2D TSNE balanced data
+Elbow Method:
+![2d TSNE Balanced](images/2dTSNEBalancedElbow.jpg)
+Optimal Clusters = 5
+
+K-Means:
+
+Cluster Evaluation:
+
+# 3D TSNE unbalanced data
+Elbow Method:
+![3d TSNE Unbalanced](images/3dTSNEUnbalancedElbow.jpg)
+Optimal Clusters = 7
+
+K-Means:
+
+Cluster Evaluation:
+
+# 3D TSNE balanced data
+Elbow Method:
+![3d TSNE Balanced](images/2dTSNEBalancedElbow.jpg)
+Optimal Clusters = 7
+
+K-Means:
+
+Cluster Evaluation:
+
+# 2D PCA unbalanced data
+Elbow Method:
+![2d PCA Unbalanced](images/2dPCAUnbalancedElbow.jpg)
+Optimal Clusters = 5
+
+K-Means:
+
+Cluster Evaluation:
+
+# 2D PCA balanced data
+Elbow Method:
+![2d PCA Balanced](images/2dPCABalancedElbow.jpg)
+Optimal Clusters = 5
+
+K-Means:
+
+Cluster Evaluation:
+
+# 3D PCA unbalanced data
+Elbow Method:
+![3d PCA Unbalanced](images/3dPCAUnbalancedElbow.jpg)
+Optimal Clusters = 5
+
+K-Means:
+
+Cluster Evaluation:
+
+# 3D PCA balanced data
+Elbow Method:
+![3d PCA Balanced](images/3dPCABalancedElbow.jpg)
+Optimal Clusters = 7
+
+K-Means:
+
+Cluster Evaluation:
+
+
+
+## GMM Clustering
+
+
+
+
+
+## Supervised Learning
+Common supervised algorithms used for stroke prediction include Decision Tree, Voting Classifier[2], and Random Forecast, Logistic Regression [3]. Throughout this project, we will construct alternative models based on the above algorithms and compare the accuracy and precision of each method. We will also measure and visualize the statistical relationships between each standalone feature and stroke likelihood.
 
 ## Results
 The expected outcome of our dataset stochastic neighbor embedding is that there will exist clusters of similar patient datapoints. These clusters represent patients who have similar health feature values. Given these similarities, one or more of these clusters may represent patients with high risk of stroke. The expected relationship between health features and stroke likelihood is expected to reflect known stroke risk factors including age, diabetes, and hypertension [5].
