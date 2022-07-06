@@ -79,10 +79,11 @@ Cluster Evaluation:
 
 ### 2D TSNE balanced data
 Elbow Method:
-<img src="images/kmeans2dTSNEBal.jpg" width="250"/>
+<img src="images/2dTSNEBalancedElbow.jpg" width="250"/>
 Optimal Clusters = 5
 
 K-Means:
+<img src="images/kmeans2dTSNEBal.jpg" width="250"/>
 
 Cluster Evaluation:
 
@@ -92,7 +93,7 @@ Elbow Method:
 Optimal Clusters = 7
 
 K-Means:
-<img src="images/kmeans3dTSNEUnbal.jpg" width="250"/>
+<img src="images/kmeans3dTSNEUnb.jpg" width="250"/>
 
 
 Cluster Evaluation:
@@ -113,7 +114,7 @@ Elbow Method:
 Optimal Clusters = 5
 
 K-Means:
-<img src="images/kmeans2dPCAUnbal.jpg" width="250"/>
+<img src="images/kmeans2dPCAUnb.jpg" width="250"/>
 
 Cluster Evaluation:
 
@@ -134,7 +135,7 @@ Elbow Method:
 Optimal Clusters = 5
 
 K-Means:
-<img src="images/kmeans3dPCAUnbal.jpg" width="250"/>
+<img src="images/kmeans3dPCAUnb.jpg" width="250"/>
 
 
 Cluster Evaluation:
