@@ -33,20 +33,24 @@ Given that this dataset has only 11 features, it is not necessary to perform any
 A major issue in the given dataset is that the raw data is unbalanced. 249 data points identify the chance of stroke, and 4821 data points have no stroke given that stroke likelihood in the average patient is very low. In order to mitigate issues that arise from only 5% of our datapoints being for a patient who suffered from a stroke, we also preprocessed the dataset using the synthetic minority oversampling technique (SMOTE) [6]. This increased the amount of datapoints that indicate stroke to 50% in our 'balanced' dataset.
 
 In order to improve visualization ability of our cluster analysis for KMeans and Gaussian Mixture Modeling, however, we also implemented t-distributed stochastic neighbor embedding (T-SNE) to reduce the dimensionality of our features to 2 and 3 features. 
+
 Unbalanced:
 <img src="images/2dTSNEUnb.jpg" width="250"/>
 Balanced:
 <img src="images/2dTSNEBal.jpg" width="250"/>
+
 Unbalanced:
 <img src="images/3dTSNEUnb.jpg" width="250"/>
 Balanced:
 <img src="images/3dTSNEBal.jpg" width="250"/>
 
 We also performed PCA in order to reduce the dimensionality to 2 and 3 dimensional spaces. We then performed a clustering analysis on these reduced datapoints as well.
+
 Unbalanced:
 <img src="images/2dPCAUnb.jpg" width="250"/>
 Balanced:
 <img src="images/2dPCABal.jpg" width="250"/>
+
 Unbalanced:
 <img src="images/3dPCAUnb.jpg" width="250"/>
 Balanced:
@@ -71,19 +75,18 @@ Elbow Method:
 <img src="images/unbalancedDataElbow.jpg" width="250"/>
 Optimal Clusters = 5
 
-K-Means:
-
-
-Cluster Evaluation:
+K-Means Cluster Evaluation:
 
 ### Balanced data (with label encoding, filled in missing data, and dropped patient id)
 Elbow Method:
 <img src="images/balancedDataElbow.jpg" width="250"/>
 Optimal Clusters = 5
 
-K-Means:
+K-Means Cluster Evaluation:
 
-Cluster Evaluation:
+GMM:
+
+GMM Cluster Evaluation:
 
 ### 2D TSNE unbalanced data
 Elbow Method:
@@ -93,7 +96,11 @@ Optimal Clusters = 5
 K-Means:
 <img src="images/kmeans2dTSNEUnb.jpg" width="250"/>
 
-Cluster Evaluation:
+K-Means Cluster Evaluation:
+
+GMM:
+
+GMM Cluster Evaluation:
 
 ### 2D TSNE balanced data
 Elbow Method:
@@ -103,7 +110,11 @@ Optimal Clusters = 5
 K-Means:
 <img src="images/kmeans2dTSNEBal.jpg" width="250"/>
 
-Cluster Evaluation:
+K-Means Cluster Evaluation:
+
+GMM:
+
+GMM Cluster Evaluation:
 
 ### 3D TSNE unbalanced data
 Elbow Method:
@@ -113,8 +124,11 @@ Optimal Clusters = 7
 K-Means:
 <img src="images/kmeans3dTSNEUnb.jpg" width="250"/>
 
+K-Means Cluster Evaluation:
 
-Cluster Evaluation:
+GMM:
+
+GMM Cluster Evaluation:
 
 ### 3D TSNE balanced data
 Elbow Method:
@@ -124,7 +138,11 @@ Optimal Clusters = 7
 K-Means:
 <img src="images/kmeans3dTSNEBal.jpg" width="250"/>
 
-Cluster Evaluation:
+K-Means Cluster Evaluation:
+
+GMM:
+
+GMM Cluster Evaluation:
 
 ### 2D PCA unbalanced data
 Elbow Method:
@@ -134,7 +152,11 @@ Optimal Clusters = 5
 K-Means:
 <img src="images/kmeans2dPCAUnb.jpg" width="250"/>
 
-Cluster Evaluation:
+K-Means Cluster Evaluation:
+
+GMM:
+
+GMM Cluster Evaluation:
 
 ### 2D PCA balanced data
 Elbow Method:
@@ -144,8 +166,11 @@ Optimal Clusters = 5
 K-Means:
 <img src="images/kmeans2dPCABal.jpg" width="250"/>
 
+K-Means Cluster Evaluation:
 
-Cluster Evaluation:
+GMM:
+
+GMM Cluster Evaluation:
 
 ### 3D PCA unbalanced data
 Elbow Method:
@@ -155,8 +180,11 @@ Optimal Clusters = 5
 K-Means:
 <img src="images/kmeans3dPCAUnb.jpg" width="250"/>
 
+K-Means Cluster Evaluation:
 
-Cluster Evaluation:
+GMM:
+
+GMM Cluster Evaluation:
 
 ### 3D PCA balanced data
 Elbow Method:
@@ -166,14 +194,11 @@ Optimal Clusters = 7
 K-Means:
 <img src="images/kmeans3dPCABal.jpg" width="250"/>
 
-Cluster Evaluation:
+K-Means Cluster Evaluation:
 
+GMM:
 
-
-## GMM Clustering
-
-
-
+GMM Cluster Evaluation:
 
 
 ## Supervised Learning
