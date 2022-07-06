@@ -31,12 +31,28 @@ Strokes are one of the most common diseases. They affect the arteries within and
 ***guys i think we should have normalized our data***
 The stroke prediction dataset [1] will be used in this project. There are a total of 5110 row (number of samples) and 12 columns with 11 features and one target column. The feature columns include physiological information believed to be relative to the chance of getting a stroke. The feature column contains both string and an integer value. We implemented label coding to convert any string value to an integer value for better interpretation of the dataset. The target column is a 1-D array of boolean values indicating whether stroke risk is identified.  
 Given that this dataset has only 11 features, it is not necessary to perform any dimensionality reduction for clustering analysis or our supervised learning approach. However, there were some missing data points in the BMI feature. These missing datapoints were replaced by the mean BMI of our dataset so as to minimally impact our outcomes. Additionally, the patient ID value is not relevant to stroke likelihood and was removed for our data analysis. Following all of this, we normalized our data using a standard scalar so that the encoded values of our data that was strings would not have a disproportionate impact on our results. This was all of the preprocessing done for our first round of unsupervised analysis. 
+A major issue in the given dataset is that the raw data is unbalanced. 249 data points identify the chance of stroke, and 4821 data points have no stroke given that stroke likelihood in the average patient is very low. In order to mitigate issues that arise from only 5% of our datapoints being for a patient who suffered from a stroke, we also preprocessed the dataset using the synthetic minority oversampling technique (SMOTE) [6]. This increased the amount of datapoints that indicate stroke to 50% in our 'balanced' dataset.
+
 In order to improve visualization ability of our cluster analysis for KMeans and Gaussian Mixture Modeling, however, we also implemented t-distributed stochastic neighbor embedding (T-SNE) to reduce the dimensionality of our features to 2 and 3 features. 
-***include pictures***
+Unbalanced:
+<img src="images/2dTSNEUnb.jpg" width="250"/>
+Balanced:
+<img src="images/2dTSNEBal.jpg" width="250"/>
+Unbalanced:
+<img src="images/3dTSNEUnb.jpg" width="250"/>
+Balanced:
+<img src="images/3dTSNEBal.jpg" width="250"/>
+
 We also performed PCA in order to reduce the dimensionality to 2 and 3 dimensional spaces. We then performed a clustering analysis on these reduced datapoints as well.
-***include pictures***
-For the supervised learning portion of our project, a major issue in the given dataset is that the raw data is unbalanced. 249 data points identify the chance of stroke, and 4821 data points have no stroke given that stroke likelihood in the average patient is very low. In order to mitigate issues that arise from only 5% of our datapoints being for a patient who suffered from a stroke, we preprocessed the dataset using the synthetic minority oversampling technique (SMOTE) [6]. This increased the amount of datapoints that indicate stroke to 50%.
-***include pictures***
+Unbalanced:
+<img src="images/2dPCAUnb.jpg" width="250"/>
+Balanced:
+<img src="images/2dPCABal.jpg" width="250"/>
+Unbalanced:
+<img src="images/3dPCAUnb.jpg" width="250"/>
+Balanced:
+<img src="images/3dPCABal.jpg" width="250"/>
+
 The processed data was split into two segments, with 80%  for training and the remaining for testing.
 
 ## Methods
