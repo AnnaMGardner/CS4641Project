@@ -21,18 +21,21 @@ Strokes are one of the most common diseases. They affect the arteries within and
 
 | Total Number of Patient | Total Number of Features  | Stroke or Not? |
 | ----------------------- | ------------------------- | -------------- |
-|           5110          |              9            |       Y/N      |
+|           5110          |              11            |       Y/N      |
 
 | Patient ID | Gender | Age | Hypertension | Heart Disease | Ever Married | Work Type | Residence Type | Average Glucose Level | BMI | Smoking Status |
 | ---------- | ------ | --- | ------------ | ------------- | ------------ | --------- | -------------- | --------------------- | --- | -------------- |
 |  67-72940  |   F/M  | 0-82|      Y/N     |      Y/N      |     Y/N      |     4     |  Urban/Rural   |         55-271        |10-97|        4       |
 
-### Method
-The stroke prediction dataset [1] will be used in this project. There are a total of 5110 row (number of samples) and 12 columns with 11 features and one target column. The feature columns include physiological information believed to be relative to the chance of getting a stroke. The feature column contains both string and an integer value. We will use label coding to convert any string value to an integer value for better interpretation of the dataset. The target column is a 1-D array of boolean values indicating whether stroke risk is identified.  
+### Data Preprocessing
+The stroke prediction dataset [1] will be used in this project. There are a total of 5110 row (number of samples) and 12 columns with 11 features and one target column. The feature columns include physiological information believed to be relative to the chance of getting a stroke. The feature column contains both string and an integer value. We implemented label coding to convert any string value to an integer value for better interpretation of the dataset. The target column is a 1-D array of boolean values indicating whether stroke risk is identified.  
+Given that this dataset has only 11 features, it is not necessary to perform any dimensionality reduction for clustering analysis or our supervised learning approach. However, there were some missing data points in the BMI feature. These missing datapoints were replaced by the mean BMI of our dataset so as to minimally impact our outcomes. Additionally, the patient ID value is not relevant to stroke likelihood and was removed for our data analysis. This was all of the preprocessing done for our first round of unsupervised analysis. 
+In order to improve visualization ability of our cluster analysis for KMeans and Gaussian Mixture Modeling, however, we also implemented t-distributed stochastic neighbor embedding to reduce the dimensionality of our features to two and three features. We then performed a clustering analysis on these reduced datapoints as well.
+For the supervised learning portion of our project, a major issue in the given dataset is that the raw data is unbalanced. 249 data points identify the chance of stroke, and 4821 data points have no stroke given that stroke likelihood in the average patient is very low. In order to mitigate issues that arise from only 5% of our datapoints being for a patient who suffered from a stroke, we preprocessed the dataset using the synthetic minority oversampling technique (SMOTE) [6]. This increased the amount of datapoints that indicate stroke to 
+The processed data was split into two segments, with 80%  for training and the remaining for testing.
 
-The raw data is unbalanced: 249 data points identify the chance of stroke, and 4821 data points have no stroke risk. We will preprocess the dataset with the synthetic minority oversampling technique (SMOTE) to balance the data [6]. The processed data will be split into two segments, with 80%  for training and the remaining for testing.
-
-To analyze the dataset, we will start with t-distributed stochastic neighbor embedding, an unsupervised learning method to visualize high dimension data to find the potential correlation between different features. Followed by supervised learning, aiming to diagnose and predict stroke risk. We will also measure and visualize the statistical relationships between each standalone feature and stroke likelihood.
+## Methods
+To analyze the dataset, we will start with , an unsupervised learning method to visualize high dimension data to find the potential correlation between different features. Followed by supervised learning, aiming to diagnose and predict stroke risk. We will also measure and visualize the statistical relationships between each standalone feature and stroke likelihood.
 
 Common supervised algorithms used for stroke prediction include Decision Tree, Voting Classifier[2], and Random Forecast, Logistic Regression [3]. Throughout this project, we will construct alternative models based on the above algorithms and compare the accuracy and precision of each method. 
 
