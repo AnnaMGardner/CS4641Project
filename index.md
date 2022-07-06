@@ -28,7 +28,6 @@ Strokes are one of the most common diseases. They affect the arteries within and
 |  67-72940  |   F/M  | 0-82|      Y/N     |      Y/N      |     Y/N      |     4     |  Urban/Rural   |         55-271        |10-97|        4       |
 
 ## Data Preprocessing
-***guys i think we should have normalized our data***
 The stroke prediction dataset [1] will be used in this project. There are a total of 5110 row (number of samples) and 12 columns with 11 features and one target column. The feature columns include physiological information believed to be relative to the chance of getting a stroke. The feature column contains both string and an integer value. We implemented label coding to convert any string value to an integer value for better interpretation of the dataset. The target column is a 1-D array of boolean values indicating whether stroke risk is identified.  
 Given that this dataset has only 11 features, it is not necessary to perform any dimensionality reduction for clustering analysis or our supervised learning approach. However, there were some missing data points in the BMI feature. These missing datapoints were replaced by the mean BMI of our dataset so as to minimally impact our outcomes. Additionally, the patient ID value is not relevant to stroke likelihood and was removed for our data analysis. Following all of this, we normalized our data using a standard scalar so that the encoded values of our data that was strings would not have a disproportionate impact on our results. This was all of the preprocessing done for our first round of unsupervised analysis. 
 A major issue in the given dataset is that the raw data is unbalanced. 249 data points identify the chance of stroke, and 4821 data points have no stroke given that stroke likelihood in the average patient is very low. In order to mitigate issues that arise from only 5% of our datapoints being for a patient who suffered from a stroke, we also preprocessed the dataset using the synthetic minority oversampling technique (SMOTE) [6]. This increased the amount of datapoints that indicate stroke to 50% in our 'balanced' dataset.
@@ -64,6 +63,9 @@ The elbow method was used to determine the optimal number of clusters for the K-
 
 ## K-Means and GMM Results
 Our data was preprocessed with 10 different combinations:
+We performed the elbow method for GMM only on the balanced dataset of 10 features and used this number of clusters for the remaining preprocessed data:
+<img src="images/GMMElbow.jpg" width="250"/>
+
 ### Unbalanced data (with label encoding, filled in missing data, and dropped patient id)
 Elbow Method:
 <img src="images/unbalancedDataElbow.jpg" width="250"/>
