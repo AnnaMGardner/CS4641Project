@@ -1,9 +1,15 @@
 Anna Gardner (Report and Stroke Predictor), Emma Long (K-Means), Zhenming Liu (Data Preprocessing), Yawen Tan (GMM)
 
-![stroke pic](Stroke_Web.png)
+<img src="Stroke_Web.png" style="display: block; 
+           margin-left: auto;
+           margin-right: auto;
+           width: 100%;"/>
 
 ## Infographic
-![Infographic](Infographic.png)
+<img src="Infographic.png" style="display: block; 
+           margin-left: auto;
+           margin-right: auto;
+           width: 100%;"/>
 
 ## Discover your risk of stroke
 {% include stroke_input.html %}
@@ -19,7 +25,7 @@ Strokes are one of the most common diseases. They affect the arteries within and
 
 ### Original dataset
 
-| Total Number of Patient | Total Number of Features  | Stroke or Not? |
+| Total Number of Patients | Total Number of Features  | Stroke or Not? |
 | ----------------------- | ------------------------- | -------------- |
 |           5110          |              11            |       Y/N      |
 
@@ -37,27 +43,39 @@ To better understand the features in the data after label encoding and filling i
 <img src="images/correlationHeatMap.png" style="display: block; 
            margin-left: auto;
            margin-right: auto;
-           width: 30%;"/>
+           width: 60%;"/>
 <p style="text-align: center;">Figure 1</p>
 
 Due to the low correlation value between the “id” and the target ”stroke” we dropped this feature.
 
-After dropping the “id” feature, we performed SMOTE to balance the data. A major issue in the given dataset is that the raw data is unbalanced. 249 data points identify the chance of stroke, and 4821 data points identify no stroke given that stroke likelihood in the average patient is very low. In order to mitigate issues that arise from only 5% of our datapoints being from a patient who suffered from a stroke, we also rebalanced the dataset using the Synthetic Minority Oversampling Technique (SMOTE) [6]. This process choses samples with the same target value that is close in the feature space and drew new data points between these samples.
-The balanced data oversamples at the adjacent of the minority (positive) datapoints to have the same number of data points as the majority (negative) data (Figure 2). We applied this method before performing PCA and T-SNE dimensionality reduction.
+After dropping the “id” feature, we performed SMOTE to balance the data. A major issue in the given dataset is that the raw data is unbalanced. 249 data points identify the chance of stroke, and 4821 data points identify no stroke given that stroke likelihood in the average patient is very low. In order to mitigate issues that arise from only 5% of our datapoints being from a patient who suffered from a stroke, we also rebalanced the dataset using the Synthetic Minority Oversampling Technique (SMOTE) [6]. This process chooses samples with the same target value that are close to eachother in the feature space and selects new datapoints that exist on a line between them. The balanced data oversamples at the adjacent of the minority (positive) datapoints to have the same number of data points as the majority (negative) data (Figure 2). We applied this method before performing PCA and T-SNE dimensionality reduction.
 
-<img src="images/smote.png" width="400"/>
-Figure 2
+<img src="images/smote.png" style="display: block; 
+           margin-left: auto;
+           margin-right: auto;
+           width: 60%;"/>
+<p style="text-align: center;">Figure 2</p>
 
-Both the PCA and T-SNE method was applied to further reduce the dimension of our data, into both 2D and into 3D, so that the data could be better visualized. We will extract the explained variance of the PCA method to understand the information we can retain after reducing the dimension.
+Both the PCA and T-SNE methods were applied to further reduce the dimensions of our data, into both 2D and into 3D, so that the data could be better visualized. We extracted the explained variance of the PCA method to understand the information we retained after reducing the dimensions.
+The processed data are visualized in 3D using both PCA  in Figure 3 and T-SNE methods in Figure 4. The red X represents a positive data point, while the green dot represents a negative data point. 
+
+<img src="Midterm Report/PCA1.gif" style="display: block; 
+           margin-left: auto;
+           margin-right: auto;
+           width: 60%;"/>
+<p style="text-align: center;">Figure 3 - 3D visualized data using PCA</p>
+
+<img src="Midterm Report/TSNE1.gif" style="display: block; 
+           margin-left: auto;
+           margin-right: auto;
+           width: 60%;"/>
+<p style="text-align: center;">Figure 4 - 3D visualized data using T-SNE</p>
+
+The explained variance of different (and cumulative) principle component indexes  for PCA is plotted in Figure t.
 
 
 
 
- We implemented label coding to convert any string value to an integer value for better interpretation of the dataset. The target column is a 1-D array of boolean values indicating whether stroke risk is identified.  
-Given that this dataset has only 11 features, it is not necessary to perform any dimensionality reduction for clustering analysis or our supervised learning approach. However, there were some missing data points in the BMI feature. These missing datapoints were replaced by the mean BMI of our dataset so as to minimally impact our outcomes. Additionally, the patient ID value is not relevant to stroke likelihood and was removed for our data analysis. Following all of this, we normalized our data using a standard scalar so that the encoded values of our data that was strings would not have a disproportionate impact on our results. This was all of the preprocessing done for our first round of unsupervised analysis. 
-A major issue in the given dataset is that the raw data is unbalanced. 249 data points identify the chance of stroke, and 4821 data points have no stroke given that stroke likelihood in the average patient is very low. In order to mitigate issues that arise from only 5% of our datapoints being for a patient who suffered from a stroke, we also preprocessed the dataset using the synthetic minority oversampling technique (SMOTE) [6]. This increased the amount of datapoints that indicate stroke to 50% in our 'balanced' dataset.
-
-In order to improve visualization ability of our cluster analysis for KMeans and Gaussian Mixture Modeling, however, we also implemented t-distributed stochastic neighbor embedding (T-SNE) to reduce the dimensionality of our features to 2 and 3 features. 
 
 Unbalanced:
 <img src="images/2dTSNEUnb.jpg" width="250"/>
