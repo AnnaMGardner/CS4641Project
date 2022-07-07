@@ -43,16 +43,15 @@ To better understand the features in the data after label encoding and filling i
 After dropping the “id” feature, we performed SMOTE to balance the data. A major issue in the given dataset is that the raw data is unbalanced. 249 data points identify the chance of stroke, and 4821 data points identify no stroke given that stroke likelihood in the average patient is very low. In order to mitigate issues that arise from only 5% of our datapoints being from a patient who suffered from a stroke, we also rebalanced the dataset using the Synthetic Minority Oversampling Technique (SMOTE) [6]. This process chooses samples with the same target value that are close to eachother in the feature space and selects new datapoints that exist on a line between them. The balanced data oversamples at the adjacent of the minority (positive) datapoints to have the same number of data points as the majority (negative) data (Figure 2 in results). We applied this method before performing PCA and T-SNE dimensionality reduction.
 Following these steps, we normalized the data between 1 and -1 in order to ensure that certain variables of different units would not have a disproportionate effect on our unsupervised and supervised learning models.
 
-Both the PCA and T-SNE methods were applied to further reduce the dimensions of our data for both the balanced and unbalanced data, into both 2D and into 3D, so that the data could be better visualized. We extracted the explained variance of the PCA method to understand the information we retained after reducing the dimensions.
+The PCA, T-SNE, and Isomap methods were applied to further reduce the dimensions of our data for both the balanced and unbalanced data, into both 2D and into 3D, so that the data could be better visualized. We extracted the explained variance of the PCA method to understand the information we retained after reducing the dimensions.
 The processed data are visualized in 2D and 3D using both T-SNE methods (Figure 3 and 3.1 in results) and PCA (Figure 4 and 4.1 in results).
 The explained variance of different (and cumulative) principle component indexes for PCA is plotted in Figure 5 in results.
-
-Given  with the PCA and T-SNE methods, 
+***ISOMAP RESULTS?***
 
 ### Unsupervised Learning
 
-Given that our data has 10 possible combinations of preprocessing as specified in data preprocessing section above, we ran two clustering algorithms, K-Means and Gaussian Mixture Modeling on these combinations to discover the approaches that were most effective in finding clusters. 
-Additionally, we used the elbow method to determine the optimal number of clusters. The target of the original dataset has only values 1 and 0. This indicates that ideally our data would form two clusters, one indicating a positive and one indicating a negative target value. However, after using the elbow method to find the optimal number of clusters, 5 or 7 will generate a much better loss. Also, the results of our TSNE and PCA dimension reduction showed visibly that there were more than two clusters present for each of these dimension redutions. 
+Given that our data has many possible combinations of preprocessing as specified in data preprocessing section above, we ran two clustering algorithms, K-Means and Gaussian Mixture Modeling on these combinations to discover the approaches that were most effective in finding clusters. 
+Additionally, we used the elbow method to determine the optimal number of clusters. The target of the original dataset has only values 1 and 0. This indicates that ideally our data would form two clusters, one indicating a positive and one indicating a negative target value. However, after using the elbow method to find the optimal number of clusters, 5 or 7 will generate a much better loss. Also, the results of our TSNE and PCA dimension reduction showed visibly that there were more than two clusters present for each of these dimension reductions. 
 
 We then quantified which models performed must successfully by calculating the Davies Bouldin and Silhouette Coefficient internal cluster evaluation measures of the clustering results.
 The possible combinations of data preprocessing are as follows:
@@ -66,6 +65,10 @@ The possible combinations of data preprocessing are as follows:
 8. Balanced, cleaned data with 3d TSNE
 9. Unbalanced, cleaned data with 3d PCA
 10. Balanced, cleaned data with 3d PCA
+11. Unbalanced, cleaned data with 2d Isomap
+12. Balanced, cleaned data with 2d Isomap
+13. Unbalanced, cleaned data with 3d Isomap
+14. Balanced, cleaned data with 3d Isomap
 We analyzed the preprocessed datasets using two unsupervised clustering analysis approaches for expectation maximization. First we clustered using K-Means, and then with Gaussian Mixture Modeling (GMM), and determined the optimal number of clusters using the elbow method.
 Then we calculated the Davies Bouldin and Silhouette Coefficients for each of these clusters. 
 
@@ -128,7 +131,7 @@ The explained variance of different (and cumulative) principle component indexes
 Given that we ran K-Means and GMM on more than a dozen different combinations of our data with both 5 and 7 clusters, we had many different possible results for our cluster analysis. 
 The performance of these analyses given the Davies-Bouldin and Silhouette Coefficient for K-Means are shown below in Figure 6.
 
-<img src="images/kmeansInternal.png" style="display: block; 
+<img src="images/kmeansInternal.jpg" style="display: block; 
            margin-left: auto;
            margin-right: auto;
            width: 100%;"/>
@@ -136,11 +139,16 @@ The performance of these analyses given the Davies-Bouldin and Silhouette Coeffi
 
 The performance of these analyses given the Davies-Bouldin and Silhouette Coefficient for GMM are shown below in Figure 7.
 
-<img src="images/GMMInternal.png" style="display: block; 
+<img src="images/GMMInternal.jpg" style="display: block; 
            margin-left: auto;
            margin-right: auto;
            width: 100%;"/>
 <p style="text-align: center;">Figure 7</p>
+
+A low score for the Davies Bouldin analysis indicates a better performance while a score closer to 1 indicates a good Silhouette Coefficient. 
+The best scores for each performance metric are highlighted in yellow. We included visualizations for some of the best performing clusters, along with other clusters of visual interest given that there is limited space in this report. 
+
+
 
 
 
@@ -152,6 +160,8 @@ From the correlation heat map (Figure 2), we can see that almost all the feature
 In the PCA explained variance, we can see that to keep over 90% of the information, we need to maintain 9 dimensions from our 11 features. The success of clustering with 9 dimensions is very difficult to visualize. As such, we took multiple approaches to our clustering analysis to visualized both dimension reduced and full-dimension clustering results as well as with balanced and unbalanced data. By reducing to 3 dimensions with PCA, only 40% of data variance is maintained. It is clear in the data visualizations that the different targets are heavily overlapping. This can be explained by the fact that our features have very little correlation and are also all important risk factors for stroke. Thus, by reducing dimensions, important information from certain features is lost. Given this knowledge and the obvious overlapping of target values in the visualizations, unsupervised learning in 3D or lower dimension is very unlikely to distinguish the two targets. 
 
 ### Unsupervised Learning
+Additionally, we used the elbow method to determine the optimal number of clusters. The target of the original dataset has only values 1 and 0. This indicates that ideally our data would form two clusters, one indicating a positive and one indicating a negative target value. However, after using the elbow method to find the optimal number of clusters, 5 or 7 will generate a much better loss. Also, the results of our TSNE and PCA dimension reduction showed visibly that there were more than two clusters present for each of these dimension reductions. 
+
 In finding the optimal number of clusters, our hope is that certain clusters might have significance in terms of stroke risk on a spectrum.
 Given the use of multiple clusters, we are lacking a ground truth, and therefore only internal measurements of cluster success could be used. Both scores are indicating that the K-means (and GMM) may not be a good clustering algorithm in this case. We may need to consider another clustering algorithm. 
 
