@@ -34,7 +34,7 @@ In order to prepare our data for both unsupervised and supervised analysis, we c
 We also observed that in our raw data had some missing values for BMI. Given that only 3.9% of this data was missing, we kept this feature and filled any missing values with the mean value of the data column. 
 To better understand the features in the data after label encoding and filling in missing data, we plotted the correlation heat map shown in Figure 1. Features with very high correlation to each other and very low correlation to the target are subject to be dropped to reduce the overall dimensionality of our data.
 
-<img src="images/correlationHeatMap.png" width="250"/>
+<img src="images/correlationHeatMap.png" width="450"/>
 Figure 1
 
 Due to the low correlation value between the “id” and the target ”stroke” we dropped this feature.
@@ -42,7 +42,7 @@ Due to the low correlation value between the “id” and the target ”stroke�
 After dropping the “id” feature, we performed SMOTE to balance the data. A major issue in the given dataset is that the raw data is unbalanced. 249 data points identify the chance of stroke, and 4821 data points identify no stroke given that stroke likelihood in the average patient is very low. In order to mitigate issues that arise from only 5% of our datapoints being from a patient who suffered from a stroke, we also rebalanced the dataset using the Synthetic Minority Oversampling Technique (SMOTE) [6]. This process choses samples with the same target value that is close in the feature space and drew new data points between these samples.
 The balanced data oversamples at the adjacent of the minority (positive) datapoints to have the same number of data points as the majority (negative) data (Figure 2). We applied this method before performing PCA and T-SNE dimensionality reduction.
 
-<img src="images/smote.png" width="250"/>
+<img src="images/smote.png" width="400"/>
 Figure 2
 
 Both the PCA and T-SNE method was applied to further reduce the dimension of our data, into both 2D and into 3D, so that the data could be better visualized. We will extract the explained variance of the PCA method to understand the information we can retain after reducing the dimension.
