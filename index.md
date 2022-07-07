@@ -34,8 +34,11 @@ In order to prepare our data for both unsupervised and supervised analysis, we c
 We also observed that in our raw data had some missing values for BMI. Given that only 3.9% of this data was missing, we kept this feature and filled any missing values with the mean value of the data column. 
 To better understand the features in the data after label encoding and filling in missing data, we plotted the correlation heat map shown in Figure 1. Features with very high correlation to each other and very low correlation to the target are subject to be dropped to reduce the overall dimensionality of our data.
 
-<img src="images/correlationHeatMap.png" width="450"/>
-Figure 1
+<img src="images/correlationHeatMap.png" style="display: block; 
+           margin-left: auto;
+           margin-right: auto;
+           width: 30%;"/>
+<p style="text-align: center;">Figure 1</p>
 
 Due to the low correlation value between the “id” and the target ”stroke” we dropped this feature.
 
