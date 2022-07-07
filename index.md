@@ -30,14 +30,19 @@ Strokes are one of the most common diseases. They affect the arteries within and
 The stroke prediction dataset [1] will be used in this project. There are a total of 5110 rows (number of samples) and 12 columns with 11 features and one target column. The feature columns include physiological information believed to be relative to the chance of getting a stroke. The feature column contains integer values such as BMI and Glucose levels. It also contains string values such as Gender. It also contains boolean values such as known history of heart disease. The target value is a discrete value in which 0 corresponds to no stroke and 1 corresponds to a stroke. 
 
 ## Data Preprocessing
-In order to prepare our data for both unsupervised and supervised analysis, we cleaned, standardized, and reduces the dimensionality of our raw dataset. Some features in the raw data contain string values which are difficult for a machine learning algorithm to process. We converted these feature values into integer value with label encoding. For example, in the “gender” column, the “male” value is converted into 1, while the “female” value is 0.
+In order to prepare our data for both unsupervised and supervised analysis, we cleaned, standardized, reduced the dimensionality, and synthetically balanced our raw dataset. Some features in the raw data contain string values which are difficult for a machine learning algorithm to process. We converted these feature values into integer value with label encoding. For example, in the “gender” column, the “male” value is converted into 1, while the “female” value is 0.
 We also observed that in our raw data had some missing values for BMI. Given that only 3.9% of this data was missing, we kept this feature and filled any missing values with the mean value of the data column. 
-To better understand the features in the data, we plotted the correlation heat map. Features with very high correlation to each other and very low correlation to the target are subject to be dropped to reduce the overall dimensionality of our data.
+To better understand the features in the data after label encoding and filling in missing data, we plotted the correlation heat map shown in Figure 1. Features with very high correlation to each other and very low correlation to the target are subject to be dropped to reduce the overall dimensionality of our data.
 
-<img src="images/2dPCAUnb.jpg" width="250"/>
+<img src="images/correlationHeatMap.png" width="250"/>
+Figure 1
 
+Due to the low correlation value between the “id” and the target ”stroke” we dropped this feature.
 
+After dropping the “id” feature, we performed SMOTE to balance the data. A major issue in the given dataset is that the raw data is unbalanced. 249 data points identify the chance of stroke, and 4821 data points identify no stroke given that stroke likelihood in the average patient is very low. In order to mitigate issues that arise from only 5% of our datapoints being from a patient who suffered from a stroke, we also preprocessed the dataset using the synthetic minority oversampling technique (SMOTE) [6]. The balanced data oversamples at the adjacent of the minority (positive) datapoints to have the same number of data points as the majority (negative) data (Figure 2).
 
+<img src="images/smote.png" width="250"/>
+Figure 2
 
 Both PCA and T-SNE method was applied to further reduce the dimension of our data, preferably into 3D, so that the data can be visualized. We will extract the explained variance of the PCA method to understand the information we can retain after reducing the dimension.
 One challenge we are facing with the raw data is that the number of data points with a positive target value is significantly larger than that of the negative value. Such unbalance may compromise our algorithm results. To rebalance the data, we used SMOTE (Synthetic Minority Oversampling TEchnique), which chose the samples with the same target value that is close in the feature space and drew new data points between these samples. We apply this method before performing the PCA and T-SNE dimensionality reduction.
