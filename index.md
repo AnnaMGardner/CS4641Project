@@ -39,13 +39,15 @@ Figure 1
 
 Due to the low correlation value between the “id” and the target ”stroke” we dropped this feature.
 
-After dropping the “id” feature, we performed SMOTE to balance the data. A major issue in the given dataset is that the raw data is unbalanced. 249 data points identify the chance of stroke, and 4821 data points identify no stroke given that stroke likelihood in the average patient is very low. In order to mitigate issues that arise from only 5% of our datapoints being from a patient who suffered from a stroke, we also preprocessed the dataset using the synthetic minority oversampling technique (SMOTE) [6]. The balanced data oversamples at the adjacent of the minority (positive) datapoints to have the same number of data points as the majority (negative) data (Figure 2).
+After dropping the “id” feature, we performed SMOTE to balance the data. A major issue in the given dataset is that the raw data is unbalanced. 249 data points identify the chance of stroke, and 4821 data points identify no stroke given that stroke likelihood in the average patient is very low. In order to mitigate issues that arise from only 5% of our datapoints being from a patient who suffered from a stroke, we also rebalanced the dataset using the Synthetic Minority Oversampling Technique (SMOTE) [6]. This process choses samples with the same target value that is close in the feature space and drew new data points between these samples.
+The balanced data oversamples at the adjacent of the minority (positive) datapoints to have the same number of data points as the majority (negative) data (Figure 2). We applied this method before performing PCA and T-SNE dimensionality reduction.
 
 <img src="images/smote.png" width="250"/>
 Figure 2
 
-Both PCA and T-SNE method was applied to further reduce the dimension of our data, preferably into 3D, so that the data can be visualized. We will extract the explained variance of the PCA method to understand the information we can retain after reducing the dimension.
-One challenge we are facing with the raw data is that the number of data points with a positive target value is significantly larger than that of the negative value. Such unbalance may compromise our algorithm results. To rebalance the data, we used SMOTE (Synthetic Minority Oversampling TEchnique), which chose the samples with the same target value that is close in the feature space and drew new data points between these samples. We apply this method before performing the PCA and T-SNE dimensionality reduction.
+Both the PCA and T-SNE method was applied to further reduce the dimension of our data, into both 2D and into 3D, so that the data could be better visualized. We will extract the explained variance of the PCA method to understand the information we can retain after reducing the dimension.
+
+
 
 
  We implemented label coding to convert any string value to an integer value for better interpretation of the dataset. The target column is a 1-D array of boolean values indicating whether stroke risk is identified.  
