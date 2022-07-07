@@ -35,10 +35,41 @@ Strokes are one of the most common diseases. They affect the arteries within and
 
 The stroke prediction dataset [1] will be used in this project. There are a total of 5110 rows (number of samples) and 12 columns with 11 features and one target column. The feature columns include physiological information believed to be relative to the chance of getting a stroke. The feature column contains integer values such as BMI and Glucose levels. It also contains string values such as Gender. It also contains boolean values such as known history of heart disease. The target value is a discrete value in which 0 corresponds to no stroke and 1 corresponds to a stroke. 
 
-## Data Preprocessing
+### Data Preprocessing
 In order to prepare our data for both unsupervised and supervised analysis, we cleaned, standardized, reduced the dimensionality, and synthetically balanced our raw dataset. Some features in the raw data contain string values which are difficult for a machine learning algorithm to process. We converted these feature values into integer value with label encoding. For example, in the “gender” column, the “male” value is converted into 1, while the “female” value is 0.
 We also observed that in our raw data had some missing values for BMI. Given that only 3.9% of this data was missing, we kept this feature and filled any missing values with the mean value of the data column. 
-To better understand the features in the data after label encoding and filling in missing data, we plotted the correlation heat map shown in Figure 1. Features with very high correlation to each other and very low correlation to the target are subject to be dropped to reduce the overall dimensionality of our data.
+To better understand the features in the data after label encoding and filling in missing data, we plotted the correlation heat map shown in Figure 1. Features with very high correlation to each other and very low correlation to the target are subject to be dropped to reduce the overall dimensionality of our data. Due to the low correlation value between the “id” and the target ”stroke” we dropped this feature.
+
+After dropping the “id” feature, we performed SMOTE to balance the data. A major issue in the given dataset is that the raw data is unbalanced. 249 data points identify the chance of stroke, and 4821 data points identify no stroke given that stroke likelihood in the average patient is very low. In order to mitigate issues that arise from only 5% of our datapoints being from a patient who suffered from a stroke, we also rebalanced the dataset using the Synthetic Minority Oversampling Technique (SMOTE) [6]. This process chooses samples with the same target value that are close to eachother in the feature space and selects new datapoints that exist on a line between them. The balanced data oversamples at the adjacent of the minority (positive) datapoints to have the same number of data points as the majority (negative) data (Figure 2 in results). We applied this method before performing PCA and T-SNE dimensionality reduction.
+Following these steps, we normalized the data between 1 and -1 in order to ensure that certain variables of different units would not have a disproportionate effect on our unsupervised and supervised learning models.
+
+Both the PCA and T-SNE methods were applied to further reduce the dimensions of our data for both the balanced and unbalanced data, into both 2D and into 3D, so that the data could be better visualized. We extracted the explained variance of the PCA method to understand the information we retained after reducing the dimensions.
+The processed data are visualized in 2D and 3D using both T-SNE methods (Figure 3 and 3.1 in results) and PCA (Figure 4 and 4.1 in results).
+The explained variance of different (and cumulative) principle component indexes for PCA is plotted in Figure 5 in results.
+
+### Unsupervised Learning
+
+Given that our data has 10 possible combinations of preprocessing as specified in data preprocessing section above, we ran two clustering algorithms, K-Means and Gaussian Mixture Modeling on these combinations to discover the approaches that were most effective in finding clusters. We quantified which models performed must successfully by calculating the Davies Bouldin and Silhouette Coefficient internal cluster evaluation measures of the clustering results.
+The possible combinations of data preprocessing are as follows:
+1. Unbalanced data with label encoding, filled BMI data, dropped patient id, normalization
+2. Balanced data with label encoding, filled BMI data, dropped patient id, normalization
+3. Unbalanced, cleaned data with 2d TSNE
+4. Balanced, cleaned data with 2d TSNE
+5. Unbalanced, cleaned data with 2d PCA
+6. Balanced, cleaned data with 2d PCA
+7. Unbalanced, cleaned data with 3d TSNE
+8. Balanced, cleaned data with 3d TSNE
+9. Unbalanced, cleaned data with 3d PCA
+10. Balanced, cleaned data with 3d PCA
+We analyzed the preprocessed datasets using two unsupervised clustering analysis approaches for expectation maximization. First we clustered using K-Means, and then with Gaussian Mixture Modeling (GMM). 
+Then we calculated the Davies Bouldin and Silhouette Coefficients for each of these clusters. 
+
+
+## Results
+
+### Data Preprocessing
+
+After label encoding and filling in missing BMI data, the correlation heatmap between features and targets is plotted and shown in Figure 1. Due to the expected low correlation value between the “id” and the target ”stroke” we dropped this feature.
 
 <img src="images/correlationHeatMap.png" style="display: block; 
            margin-left: auto;
@@ -46,9 +77,7 @@ To better understand the features in the data after label encoding and filling i
            width: 60%;"/>
 <p style="text-align: center;">Figure 1</p>
 
-Due to the low correlation value between the “id” and the target ”stroke” we dropped this feature.
-
-After dropping the “id” feature, we performed SMOTE to balance the data. A major issue in the given dataset is that the raw data is unbalanced. 249 data points identify the chance of stroke, and 4821 data points identify no stroke given that stroke likelihood in the average patient is very low. In order to mitigate issues that arise from only 5% of our datapoints being from a patient who suffered from a stroke, we also rebalanced the dataset using the Synthetic Minority Oversampling Technique (SMOTE) [6]. This process chooses samples with the same target value that are close to eachother in the feature space and selects new datapoints that exist on a line between them. The balanced data oversamples at the adjacent of the minority (positive) datapoints to have the same number of data points as the majority (negative) data (Figure 2). We applied this method before performing PCA and T-SNE dimensionality reduction.
+After dropping the “id” feature, we performed SMOTE to balance the data. The original data contains 4861 negative cases and only 249 positive cases. The balanced data oversample at the adjacent of the minority (positive) data points to have the same number of data points as the majority (negative) data (Figure 2).
 
 <img src="images/smote.png" style="display: block; 
            margin-left: auto;
@@ -56,59 +85,57 @@ After dropping the “id” feature, we performed SMOTE to balance the data. A m
            width: 60%;"/>
 <p style="text-align: center;">Figure 2</p>
 
-Both the PCA and T-SNE methods were applied to further reduce the dimensions of our data, into both 2D and into 3D, so that the data could be better visualized. We extracted the explained variance of the PCA method to understand the information we retained after reducing the dimensions.
-The processed data are visualized in 3D using both PCA  in Figure 3 and T-SNE methods in Figure 4. The red X represents a positive data point, while the green dot represents a negative data point. 
+The processed data are visualized in 3D using both T-SNE and PCA methods in Figures 3 and 4. The red X represents a positive data point, while the green dot represents a negative data point.
 
-<img src="Midterm Report/PCA1.gif" style="display: block; 
+<img src="images/2dTSNEBal.jpg" style="display: block; 
            margin-left: auto;
            margin-right: auto;
            width: 60%;"/>
-<p style="text-align: center;">Figure 3 - 3D visualized data using PCA</p>
+<p style="text-align: center;">Figure 3 - 2D visualized data using PCA</p>
 
 <img src="Midterm Report/TSNE1.gif" style="display: block; 
            margin-left: auto;
            margin-right: auto;
            width: 60%;"/>
-<p style="text-align: center;">Figure 4 - 3D visualized data using T-SNE</p>
+<p style="text-align: center;">Figure 3.1 - 3D visualized data using T-SNE</p>
 
-The explained variance of different (and cumulative) principle component indexes  for PCA is plotted in Figure t.
+<img src="images/2dPCABal.jpg" style="display: block; 
+           margin-left: auto;
+           margin-right: auto;
+           width: 60%;"/>
+<p style="text-align: center;">Figure 4 - 2D visualized data using PCA</p>
+
+<img src="Midterm Report/PCA1.gif" style="display: block; 
+           margin-left: auto;
+           margin-right: auto;
+           width: 60%;"/>
+<p style="text-align: center;">Figure 4.1 - 3D visualized data using PCA</p>
+
+The explained variance of different (and cumulative) principle component indexes is plotted in Figure 5.
+
+<img src="images/PCAVariance.png" style="display: block; 
+           margin-left: auto;
+           margin-right: auto;
+           width: 60%;"/>
+<p style="text-align: center;">Figure 5 - PCA Explained Variance</p>
 
 
 
+## Discussion
+
+### Data Preprocessing
+
+From the correlation heat map (Figure 2), we can see that almost all the features are fairly independent of each other, except for “ever_married” and “age” which agree and that reflects our intuition. Even so, the correlation between these two features is only 0.68, and as such we chose to keep both features. Looking at the last row of the correlation matrix, we see both the “id” and “gender” have a relatively low correlation with our target value “stroke.” The “id” stands for a random number given to each patient and intuitively is not relative to the chance of getting a stroke. Thus, this feature is dropped with confidence. Although gender also shows a statistically low correlation to target, we still decided to keep it and leave for further steps.
+In the PCA explained variance, we can see that to keep over 90% of the information, we need to maintain 9 dimensions from our 11 features. The success of clustering with 9 dimensions is very difficult to visualize. As such, we took multiple approaches to our clustering analysis to visualized both dimension reduced and full-dimension clustering results as well as with balanced and unbalanced data. By reducing to 3 dimensions with PCA, only 40% of data variance is maintained. It is clear in the data visualizations that the different targets are heavily overlapping. This can be explained by the fact that our features have very little correlation and are also all important risk factors for stroke. Thus, by reducing dimensions, important information from certain features is lost. Given this knowledge and the obvious overlapping of target values in the visualizations, unsupervised learning in 3D or lower dimension is very unlikely to distinguish the two targets. 
+
+### Unsupervised Learning
 
 
-Unbalanced:
-<img src="images/2dTSNEUnb.jpg" width="250"/>
-Balanced:
-<img src="images/2dTSNEBal.jpg" width="250"/>
-
-Unbalanced:
-<img src="images/3dTSNEUnb.jpg" width="250"/>
-Balanced:
-<img src="images/3dTSNEBal.jpg" width="250"/>
-
-We also performed PCA in order to reduce the dimensionality to 2 and 3 dimensional spaces. We then performed a clustering analysis on these reduced datapoints as well.
-
-Unbalanced:
-<img src="images/2dPCAUnb.jpg" width="250"/>
-Balanced:
-<img src="images/2dPCABal.jpg" width="250"/>
-
-Unbalanced:
-<img src="images/3dPCAUnb.jpg" width="250"/>
-Balanced:
-<img src="images/3dPCABal.jpg" width="250"/>
-
-The processed data was split into two segments, with 80%  for training and the remaining for testing.
-
-## Methods
-We analyzed the preprocessed dataset using two unsupervised clustering analysis approaches for expectation maximization. First we clustered using K-Means, and then with Gaussian Mixture Modeling (GMM).
-
-## KMeans Clustering
+### KMeans Clustering
 We conducted the K-Means algorithm on both the original dataset and the dataset after T-SNE and PCA. The most important aspect of using this algorithm was to determine if the resulting clusters were useful for classifying specific attributes, in this case stroke risk, for specific groups of people.
 The elbow method was used to determine the optimal number of clusters for the K-Means algorithm, which estimates the improvement for the addition of each cluster. Then we ran the K-Means algorithm for each of these optimal number of clusters.
 
-## K-Means and GMM Results
+### K-Means and GMM Results
 Our data was preprocessed with 10 different combinations:
 We performed the elbow method for GMM only on the balanced dataset of 10 features and used this number of clusters for the remaining preprocessed data:
 <img src="images/GMMElbow.jpg" width="250"/>
