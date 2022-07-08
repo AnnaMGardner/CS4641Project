@@ -69,6 +69,8 @@ The possible combinations of data preprocessing are as follows:
 12. Balanced, cleaned data with 2d Isomap
 13. Unbalanced, cleaned data with 3d Isomap
 14. Balanced, cleaned data with 3d Isomap
+
+
 We analyzed the preprocessed datasets using two unsupervised clustering analysis approaches for expectation maximization. First we clustered using K-Means, and then with Gaussian Mixture Modeling (GMM), and determined the optimal number of clusters using the elbow method.
 Then we calculated the Davies Bouldin and Silhouette Coefficients for each of these clusters. 
 
@@ -94,7 +96,7 @@ After dropping the “id” feature, we performed SMOTE to balance the data. The
 
 The processed data are visualized in 2D and 3D using both T-SNE and PCA methods for balanced and unbalanced data in Figures 3 - 3.2 and 4 - 4.2. The red X represents a positive data point, while the green dot represents a negative data point.
 
-<img src="Midterm Report/balanced TSNE2d.png" style="display: block; 
+<img src="Midterm Report/balanced TSNE2D.png" style="display: block; 
            margin-left: auto;
            margin-right: auto;
            width: 60%;"/>
