@@ -134,7 +134,7 @@ The processed data are visualized in 2D and 3D using both T-SNE and PCA methods 
 
 The explained variance of different (and cumulative) principle component indexes is plotted in Figure 5.
 
-<img src="images/PCAVariance.png" style="display: block; 
+<img src="images/PCA_variance.png" style="display: block; 
            margin-left: auto;
            margin-right: auto;
            width: 60%;"/>
