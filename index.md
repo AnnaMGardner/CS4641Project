@@ -112,7 +112,7 @@ The processed data are visualized in 3D using both T-SNE and PCA methods in Figu
            width: 60%;"/>
 <p style="text-align: center;">Figure 3.1 - 3D visualized data using T-SNE with balanced data</p>
 
-<img src="images/2dPCABal.jpg" style="display: block; 
+<img src="Midterm Report/balanced PCA2D.png" style="display: block; 
            margin-left: auto;
            margin-right: auto;
            width: 60%;"/>
@@ -191,7 +191,7 @@ The best scores for each performance metric are highlighted in yellow. We includ
            width: 60%;"/>
 <p style="text-align: center;">Elbow Method</p>
 
-<img src="images/gmm2dPCAUnb.jpg" style="display: block; 
+<img src="images/gmm2dPCAUnb.png" style="display: block; 
            margin-left: auto;
            margin-right: auto;
            width: 60%;"/>
@@ -203,7 +203,7 @@ The best scores for each performance metric are highlighted in yellow. We includ
            width: 60%;"/>
 <p style="text-align: center;">Elbow Method</p>
 
-<img src="images/GMM2dTSNEUnb.jpg" style="display: block; 
+<img src="images/GMM2dTSNEUnb.png" style="display: block; 
            margin-left: auto;
            margin-right: auto;
            width: 60%;"/>
