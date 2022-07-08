@@ -78,7 +78,7 @@ Then we calculated the Davies Bouldin and Silhouette Coefficients for each of th
 
 After label encoding and filling in missing BMI data, the correlation heatmap between features and targets is plotted and shown in Figure 1. Due to the expected low correlation value between the “id” and the target ”stroke” we dropped this feature.
 
-<img src="images/correlationHeatMap.png" style="display: block; 
+<img src="Midterm Report/correlation map.png" style="display: block; 
            margin-left: auto;
            margin-right: auto;
            width: 60%;"/>
@@ -86,7 +86,7 @@ After label encoding and filling in missing BMI data, the correlation heatmap be
 
 After dropping the “id” feature, we performed SMOTE to balance the data. The original data contains 4861 negative cases and only 249 positive cases. The balanced data oversample at the adjacent of the minority (positive) data points to have the same number of data points as the majority (negative) data (Figure 2).
 
-<img src="images/smote.png" style="display: block; 
+<img src="Midterm Report/" style="display: block; 
            margin-left: auto;
            margin-right: auto;
            width: 60%;"/>
@@ -146,11 +146,61 @@ The performance of these analyses given the Davies-Bouldin and Silhouette Coeffi
 <p style="text-align: center;">Figure 7</p>
 
 A low score for the Davies Bouldin analysis indicates a better performance while a score closer to 1 indicates a good Silhouette Coefficient. 
-The best scores for each performance metric are highlighted in yellow. We included visualizations for some of the best performing clusters, along with other clusters of visual interest given that there is limited space in this report. 
+The best scores for each performance metric are highlighted in yellow. We included visualizations for some of the best performing clusters, along with other clusters of visual interest given that there is limited space in this report. Below are some of the results: 
 
+### K-Means 3D TSNE, unbalanced data, 7 clusters
+<img src="images/3dTSNEUnbalancedElbow.jpg" style="display: block; 
+           margin-left: auto;
+           margin-right: auto;
+           width: 60%;"/>
+<p style="text-align: center;">Elbow Method</p>
 
+<img src="Midterm Report/Midterm_3Dpic/Kmeans_UnbTSNE3D_7.gif" style="display: block; 
+           margin-left: auto;
+           margin-right: auto;
+           width: 60%;"/>
 
+### K-Means 2D PCA, balanced data, 5 clusters
+<img src="images/2dPCABalancedElbow.jpg" style="display: block; 
+           margin-left: auto;
+           margin-right: auto;
+           width: 60%;"/>
+<p style="text-align: center;">Elbow Method</p>
 
+<img src="images/kmeans2dPCABal.jpg" style="display: block; 
+           margin-left: auto;
+           margin-right: auto;
+           width: 60%;"/>
+
+### GMM 2D PCA, unbalanced data, 5 clusters
+<img src="images/GMMElbow.jpg" style="display: block; 
+           margin-left: auto;
+           margin-right: auto;
+           width: 60%;"/>
+<p style="text-align: center;">Elbow Method</p>
+
+<img src="images/gmm2dPCAUnb.jpg" style="display: block; 
+           margin-left: auto;
+           margin-right: auto;
+           width: 60%;"/>
+
+### GMM 2D TSNE, unbalanced data, 5 clusters
+<img src="images/GMMElbow.jpg" style="display: block; 
+           margin-left: auto;
+           margin-right: auto;
+           width: 60%;"/>
+<p style="text-align: center;">Elbow Method</p>
+
+<img src="images/GMM2dTSNEUnb.jpg" style="display: block; 
+           margin-left: auto;
+           margin-right: auto;
+           width: 60%;"/>
+
+### K-Means 3D Isomap, unbalanced data, 2 clusters
+<img src="Midterm Report/Midterm_3Dpic/Kmeans_UnbIsomap3D_2.gif" style="display: block; 
+           margin-left: auto;
+           margin-right: auto;
+           width: 60%;"/>
 
 ## Discussion
 
@@ -169,140 +219,7 @@ Given the use of multiple clusters, we are lacking a ground truth, and therefore
 
 
 
-### K-Means and GMM Results
-Our data was preprocessed with 10 different combinations:
-We performed the elbow method for GMM only on the balanced dataset of 10 features and used this number of clusters for the remaining preprocessed data:
-<img src="images/GMMElbow.jpg" width="250"/>
 
-### Unbalanced data (with label encoding, filled in missing data, and dropped patient id)
-Elbow Method:
-<img src="images/unbalancedDataElbow.jpg" width="250"/>
-Optimal Clusters = 5
-
-K-Means Cluster Evaluation:
-
-### Balanced data (with label encoding, filled in missing data, and dropped patient id)
-Elbow Method:
-<img src="images/balancedDataElbow.jpg" width="250"/>
-Optimal Clusters = 5
-
-K-Means Cluster Evaluation:
-
-GMM:
-
-GMM Cluster Evaluation:
-
-### 2D TSNE unbalanced data
-Elbow Method:
-<img src="images/2dTSNEUnbalancedElbow.jpg" width="250"/>
-Optimal Clusters = 5
-
-K-Means:
-<img src="images/kmeans2dTSNEUnb.jpg" width="250"/>
-
-K-Means Cluster Evaluation:
-
-GMM:
-
-GMM Cluster Evaluation:
-
-### 2D TSNE balanced data
-Elbow Method:
-<img src="images/2dTSNEBalancedElbow.jpg" width="250"/>
-Optimal Clusters = 5
-
-K-Means:
-<img src="images/kmeans2dTSNEBal.jpg" width="250"/>
-
-K-Means Cluster Evaluation:
-
-GMM:
-
-GMM Cluster Evaluation:
-
-### 3D TSNE unbalanced data
-Elbow Method:
-<img src="images/3dTSNEUnbalancedElbow.jpg" width="250"/>
-Optimal Clusters = 7
-
-K-Means:
-<img src="images/kmeans3dTSNEUnb.jpg" width="250"/>
-
-K-Means Cluster Evaluation:
-
-GMM:
-
-GMM Cluster Evaluation:
-
-### 3D TSNE balanced data
-Elbow Method:
-<img src="images/3dTSNEBalancedElbow.jpg" width="250"/>
-Optimal Clusters = 7
-
-K-Means:
-<img src="images/kmeans3dTSNEBal.jpg" width="250"/>
-
-K-Means Cluster Evaluation:
-
-GMM:
-
-GMM Cluster Evaluation:
-
-### 2D PCA unbalanced data
-Elbow Method:
-<img src="images/2dPCAUnbalancedElbow.jpg" width="250"/>
-Optimal Clusters = 5
-
-K-Means:
-<img src="images/kmeans2dPCAUnb.jpg" width="250"/>
-
-K-Means Cluster Evaluation:
-
-GMM:
-
-GMM Cluster Evaluation:
-
-### 2D PCA balanced data
-Elbow Method:
-<img src="images/2dPCABalancedElbow.jpg" width="250"/>
-Optimal Clusters = 5
-
-K-Means:
-<img src="images/kmeans2dPCABal.jpg" width="250"/>
-
-K-Means Cluster Evaluation:
-
-GMM:
-
-GMM Cluster Evaluation:
-
-### 3D PCA unbalanced data
-Elbow Method:
-<img src="images/3dPCAUnbalancedElbow.jpg" width="250"/>
-Optimal Clusters = 5
-
-K-Means:
-<img src="images/kmeans3dPCAUnb.jpg" width="250"/>
-
-K-Means Cluster Evaluation:
-
-GMM:
-
-GMM Cluster Evaluation:
-
-### 3D PCA balanced data
-Elbow Method:
-<img src="images/3dPCABalancedElbow.jpg" width="250"/>
-Optimal Clusters = 7
-
-K-Means:
-<img src="images/kmeans3dPCABal.jpg" width="250"/>
-
-K-Means Cluster Evaluation:
-
-GMM:
-
-GMM Cluster Evaluation:
 
 
 ## Supervised Learning
