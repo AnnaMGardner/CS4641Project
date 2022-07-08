@@ -134,7 +134,7 @@ The processed data are visualized in 2D and 3D using both T-SNE and PCA methods 
 
 The explained variance of different (and cumulative) principle component indexes is plotted in Figure 5.
 
-<img src="images/PCA_variance.png" style="display: block; 
+<img src="Midterm Report/PCA_variance.png" style="display: block; 
            margin-left: auto;
            margin-right: auto;
            width: 60%;"/>
@@ -210,8 +210,8 @@ The best scores for each performance metric are highlighted in yellow. We includ
            margin-right: auto;
            width: 60%;"/>
 
-### K-Means 3D Isomap, unbalanced data, 2 clusters
-<img src="Midterm Report/Midterm_3Dpic/Kmeans_UnbIsomap3D_2.gif" style="display: block; 
+### K-Means 3D Isomap, unbalanced data, 5 clusters
+<img src="Midterm Report/Midterm_3Dpic/Kmeans_UnbIsomap3D_2.png" style="display: block; 
            margin-left: auto;
            margin-right: auto;
            width: 60%;"/>
@@ -227,12 +227,12 @@ From the correlation heat map (Figure 2), we can see that almost all the feature
 In the PCA explained variance, we can see that to keep over 90% of the information, we need to maintain 9 dimensions from our 11 features. The success of clustering with 9 dimensions is very difficult to visualize. As such, we took multiple approaches to our clustering analysis to visualized both dimension reduced and full-dimension clustering results as well as with balanced and unbalanced data. By reducing to 3 dimensions with PCA, only 40% of data variance is maintained. It is clear in the data visualizations for the different targets are heavily overlapping, especially in 3D. This can be explained by the fact that our features have very little correlation and are also all important risk factors for stroke. Thus, by reducing dimensions, important information from certain features is lost. Despite this, the 2D PCA reduction does show areas where there is higher density of positive target values. Additionally, the 2D PCA also performed relatively well on internal measures for K-Means and GMM. This may indicate that the clusters from the 2D PCA reduction have a significance in relation to stroke risk. 
 We also implemented isomap dimensionality reduction with the hope that it would have better performance than both PCA and T-SNE. This algorithm is a non-linear approach as opposed to PCA and T-SNE, and so had the chance of performing better than these other approaches. 
 
-Given the wide range of possible patients, there are many possible areas that the dataset may have a cluster, for example younger females that live in urban settings, but that may not necessarily indicate that all of these individuals will have a stroke. Rather the clusters likely indicate a general stroke risk. Additionally, the results of the PCA and T-SNE dimensionality reduction showed that the positive target values were not necessarily focused in one cluster, but were more on a gradient in certain areas. 
+Given the wide range of possible patients, there are many possible areas that the dataset may have a cluster, for example younger females that live in urban settings. These clusters may not necessarily indicate in a binary fashion that all of these individuals will have a stroke. Rather the clusters likely indicate a general stroke risk. Additionally, the results of the PCA and T-SNE dimensionality reduction showed that the positive target values were not necessarily focused in one cluster, but were more on a gradient in certain areas. 
 Due to this reality, we decided to find the optimal number of clusters using the elbow method for K-Means and GMM. This is because it is likely that if certain clusters have significance in terms of stroke risk that it would fall on a spectrum.
 
 Because we took the approach of using the optimal number of clusters with the elbow method, there was no ground truth with which to analyze the dataset. Thus, we used the Davies Bouldin and Silhouette Coefficient internal measures for our clustering algorithms.
 
-The first displayed result of our K-Means algorithm 'K-Means 3D TSNE, unbalanced data, 7 clusters' shows the most distinct set of 
+The first displayed result of our K-Means algorithm 'K-Means 3D TSNE, unbalanced data, 7 clusters' shows a distinct set of clusters that are identified and color coded with the K-Means algorithm. In figure 1,  
 
 Overall, despite taking many approaches to dimensionality reduction and clustering, our results for the Davies Bouldin and Silhouette Coefficients for our clustering algorithms were not great. Our Silhouette Coefficients were closer to 0 than they were to 1, and our Davies Bouldin values were not close to zero. Due to the complexity of disease of our data, unsupervised learning may not be well suited to this particular dataset and target. This dataset and problem is more of a classification problem, and as such is better suited for supervised learning which 
 
