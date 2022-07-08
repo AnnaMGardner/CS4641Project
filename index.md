@@ -92,7 +92,7 @@ After dropping the “id” feature, we performed SMOTE to balance the data. The
            width: 60%;"/>
 <p style="text-align: center;">Figure 2</p>
 
-The processed data are visualized in 3D using both T-SNE and PCA methods in Figures 3 and 4. The red X represents a positive data point, while the green dot represents a negative data point.
+The processed data are visualized in 2D and 3D using both T-SNE and PCA methods for balanced and unbalanced data in Figures 3 - 3.2 and 4 - 4.2. The red X represents a positive data point, while the green dot represents a negative data point.
 
 <img src="Midterm Report/balanced TSNE2d.png" style="display: block; 
            margin-left: auto;
@@ -104,13 +104,13 @@ The processed data are visualized in 3D using both T-SNE and PCA methods in Figu
            margin-left: auto;
            margin-right: auto;
            width: 60%;"/>
-<p style="text-align: center;">Figure 3 - 2D visualized data using TSNE with unbalanced data</p>
+<p style="text-align: center;">Figure 3.1 - 2D visualized data using TSNE with unbalanced data</p>
 
 <img src="Midterm Report/TSNE1.gif" style="display: block; 
            margin-left: auto;
            margin-right: auto;
            width: 60%;"/>
-<p style="text-align: center;">Figure 3.1 - 3D visualized data using T-SNE with balanced data</p>
+<p style="text-align: center;">Figure 3.2 - 3D visualized data using T-SNE with balanced data</p>
 
 <img src="Midterm Report/balanced PCA2D.png" style="display: block; 
            margin-left: auto;
@@ -122,13 +122,13 @@ The processed data are visualized in 3D using both T-SNE and PCA methods in Figu
            margin-left: auto;
            margin-right: auto;
            width: 60%;"/>
-<p style="text-align: center;">Figure 4 - 2D visualized data using PCA with unbalanced data</p>
+<p style="text-align: center;">Figure 4.1 - 2D visualized data using PCA with unbalanced data</p>
 
 <img src="Midterm Report/PCA1.gif" style="display: block; 
            margin-left: auto;
            margin-right: auto;
            width: 60%;"/>
-<p style="text-align: center;">Figure 4.1 - 3D visualized data using PCA with balanced data</p>
+<p style="text-align: center;">Figure 4.2 - 3D visualized data using PCA with balanced data</p>
 
 The explained variance of different (and cumulative) principle component indexes is plotted in Figure 5.
 
