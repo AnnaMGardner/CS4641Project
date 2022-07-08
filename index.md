@@ -86,7 +86,7 @@ After label encoding and filling in missing BMI data, the correlation heatmap be
 
 After dropping the “id” feature, we performed SMOTE to balance the data. The original data contains 4861 negative cases and only 249 positive cases. The balanced data oversample at the adjacent of the minority (positive) data points to have the same number of data points as the majority (negative) data (Figure 2).
 
-<img src="Midterm Report/" style="display: block; 
+<img src="Midterm Report/smote.png" style="display: block; 
            margin-left: auto;
            margin-right: auto;
            width: 60%;"/>
@@ -94,29 +94,41 @@ After dropping the “id” feature, we performed SMOTE to balance the data. The
 
 The processed data are visualized in 3D using both T-SNE and PCA methods in Figures 3 and 4. The red X represents a positive data point, while the green dot represents a negative data point.
 
-<img src="images/2dTSNEBal.jpg" style="display: block; 
+<img src="Midterm Report/balanced TSNE2d.png" style="display: block; 
            margin-left: auto;
            margin-right: auto;
            width: 60%;"/>
-<p style="text-align: center;">Figure 3 - 2D visualized data using PCA</p>
+<p style="text-align: center;">Figure 3 - 2D visualized data using TSNE with balanced data</p>
+
+<img src="Midterm Report/unbalanced TSNE2D.png" style="display: block; 
+           margin-left: auto;
+           margin-right: auto;
+           width: 60%;"/>
+<p style="text-align: center;">Figure 3 - 2D visualized data using TSNE with unbalanced data</p>
 
 <img src="Midterm Report/TSNE1.gif" style="display: block; 
            margin-left: auto;
            margin-right: auto;
            width: 60%;"/>
-<p style="text-align: center;">Figure 3.1 - 3D visualized data using T-SNE</p>
+<p style="text-align: center;">Figure 3.1 - 3D visualized data using T-SNE with balanced data</p>
 
 <img src="images/2dPCABal.jpg" style="display: block; 
            margin-left: auto;
            margin-right: auto;
            width: 60%;"/>
-<p style="text-align: center;">Figure 4 - 2D visualized data using PCA</p>
+<p style="text-align: center;">Figure 4 - 2D visualized data using PCA with balanced data</p>
+
+<img src="Midterm Report/unbalanced PCA2D.png" style="display: block; 
+           margin-left: auto;
+           margin-right: auto;
+           width: 60%;"/>
+<p style="text-align: center;">Figure 4 - 2D visualized data using PCA with unbalanced data</p>
 
 <img src="Midterm Report/PCA1.gif" style="display: block; 
            margin-left: auto;
            margin-right: auto;
            width: 60%;"/>
-<p style="text-align: center;">Figure 4.1 - 3D visualized data using PCA</p>
+<p style="text-align: center;">Figure 4.1 - 3D visualized data using PCA with balanced data</p>
 
 The explained variance of different (and cumulative) principle component indexes is plotted in Figure 5.
 
