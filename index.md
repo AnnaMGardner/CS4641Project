@@ -169,7 +169,7 @@ The best scores for each performance metric are highlighted in yellow. We includ
            width: 60%;"/>
 <p style="text-align: center;">Elbow Method</p>
 
-<img src="Midterm Report/Midterm_3Dpic/Kmeans_UnbTSNE3D_7.gif" style="display: block; 
+<img src="Midterm Report/Midterm_3Dpic/Kmeans_unbTsne3D_7.gif" style="display: block; 
            margin-left: auto;
            margin-right: auto;
            width: 60%;"/>
