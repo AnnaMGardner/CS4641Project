@@ -13,8 +13,8 @@ function ajaxpost () {
   // (B2) SHOW MESSAGE ON SERVER RESPONSE
   .then((response) => {
     console.log(response);
-    if (response == "Low Risk") { document.getElementById("strokeRiskResult").appendChild(<iframe src="https://giphy.com/embed/ZgCM9TWQ5lL8zpc4G2" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/ZgCM9TWQ5lL8zpc4G2">via GIPHY</a></p>) }
-    else { alert("FAILURE!"); }
+    if (response == "Low Risk") { document.getElementById("strokeRiskResult").appendChild(<iframe src="https://giphy.com/embed/ZgCM9TWQ5lL8zpc4G2" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/ZgCM9TWQ5lL8zpc4G2">via GIPHY</a></p>) ;}
+    else { document.getElementById("strokeRiskResult").appendChild(<iframe src="https://giphy.com/embed/ZgCM9TWQ5lL8zpc4G2" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/ZgCM9TWQ5lL8zpc4G2">via GIPHY</a></p>) ; }
   })
  
   // (B3) OPTIONAL - HANDLE FETCH ERROR
