@@ -5,7 +5,7 @@ function ajaxpost () {
  
   // (B) AJAX REQUEST
   // (B1) POST DATA TO SERVER, RETURN RESPONSE AS TEXT
-  fetch("https://vyfeovv08c.execute-api.us-east-2.amazonaws.com/beta", { method:"POST", body:data, header: "Access-Control-Allow-Origin" })
+  fetch("https://vyfeovv08c.execute-api.us-east-2.amazonaws.com/beta", { method:"POST", body:data})
   .then(res=>res.text())
  
   // (B2) SHOW MESSAGE ON SERVER RESPONSE
