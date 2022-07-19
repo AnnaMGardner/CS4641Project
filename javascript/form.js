@@ -1,14 +1,13 @@
 function ajaxpost () {
   // (A) GET FORM DATA
   var form = document.getElementById("myForm");
-  var data = "{
-    "type" : "cat",
-    "price" : 123.11
-}";
+  var object = {};
+  formData.forEach((value, key) => object[key] = value);
+  var json = JSON.stringify(object);
  
   // (B) AJAX REQUEST
   // (B1) POST DATA TO SERVER, RETURN RESPONSE AS TEXT
-  fetch("https://vyfeovv08c.execute-api.us-east-2.amazonaws.com/beta", { method:"POST", body:data})
+  fetch("https://vyfeovv08c.execute-api.us-east-2.amazonaws.com/beta", { method:"POST", body:json})
   .then(res=>res.text())
  
   // (B2) SHOW MESSAGE ON SERVER RESPONSE
