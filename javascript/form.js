@@ -1,7 +1,10 @@
 function ajaxpost () {
   // (A) GET FORM DATA
   var form = document.getElementById("myForm");
-  var data = new FormData(form);
+  var data = "{
+    "type" : "cat",
+    "price" : 123.11
+}";
  
   // (B) AJAX REQUEST
   // (B1) POST DATA TO SERVER, RETURN RESPONSE AS TEXT
