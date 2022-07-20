@@ -2,7 +2,7 @@ function ajaxpost () {
   // (A) GET FORM DATA
   var form = document.getElementById("myForm");
   var object = {};
-  formData.forEach((value, key) => object[key] = value);
+  FormData.forEach((value, key) => object[key] = value);
   var json = JSON.stringify(object);
  
   // (B) AJAX REQUEST
