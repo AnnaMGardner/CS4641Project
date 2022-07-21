@@ -4,6 +4,7 @@ function ajaxpost () {
   var object = {};
   var link = "";
   var iframe = document.createElement('iframe');
+  var text = "";
   iframe.frameBorder=0;
   iframe.width="300px";
   iframe.height="250px";
@@ -25,11 +26,14 @@ function ajaxpost () {
   }, body:formDataJsonString})
   .then((response) => {
     console.log("got here")
-    if (response.text() == "Low Risk") { link =  "https://tenor.com/view/artificilbrain-ai-brain-gif-21833276" }
-    else { link =  "https://tenor.com/view/ai-brain-gif-22063625"}
+    if (response.text() == "Low Risk") { link =  "https://tenor.com/view/artificilbrain-ai-brain-gif-21833276"; text = "Based on a predictive model trained on stroke patient data from around 5,000 patients, your risk of stroke is LOW."; }
+    else { link =  "https://tenor.com/view/ai-brain-gif-22063625"; text = "Based on a predictive model trained on stroke patient data from around 5,000 patients, your risk of stroke is HIGH. Preventative measures against a stroke can be found here: https://www.cdc.gov/stroke/prevention.htm" ;}
   })
   iframe.setAttribute("src", link);
-  document.getElementById("strokeRiskResult").appendChild(iframe) ;
+  predictionDiv = document.getElementById("strokeRiskResult").appendChild(iframe) ;
+  predictionDiv.innerHTML = '';
+  predictionDiv.appendChild(iframe);
+  predictionDiv.insertAdjacentText(text);
   // (B3) OPTIONAL - HANDLE FETCH ERROR
   .catch((err) => { console.error(err); });
  
