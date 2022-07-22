@@ -6,10 +6,10 @@ function ajaxpost () {
   var iframe = document.createElement('iframe');
   var text = "";
   iframe.frameBorder=0;
-  iframe.width="300px";
-  iframe.height="250px";
+  iframe.width="833px";
+  iframe.height="901px";
   iframe.id="randomid";
-  var formData = new FormData(document.querySelector('form'))
+  var formData = new FormData(document.querySelector('form'));
   var formDataObject = Object.fromEntries(formData.entries());
   // Format the plain form data as JSON
   var formDataJsonString = JSON.stringify(formDataObject);
@@ -24,16 +24,17 @@ function ajaxpost () {
   fetch("https://vyfeovv08c.execute-api.us-east-2.amazonaws.com/beta", { method:"POST", headers: {
     'Content-Type': 'application/json;charset=utf-8'
   }, body:formDataJsonString})
-  .then((response) => {
-    console.log("got here")
-    if (response.text() == "Low Risk") { link =  "https://tenor.com/view/artificilbrain-ai-brain-gif-21833276"; text = "Based on a predictive model trained on stroke patient data from around 5,000 patients, your risk of stroke is LOW."; }
-    else { link =  "https://tenor.com/view/ai-brain-gif-22063625"; text = "Based on a predictive model trained on stroke patient data from around 5,000 patients, your risk of stroke is HIGH. Preventative measures against a stroke can be found here: https://www.cdc.gov/stroke/prevention.htm" ;}
-  })
+  .then(response => response.json())
+  .then(data => {
+    console.log(data.body)
+    if (data.body.Prediction == "0") { link =  "https://c.tenor.com/3rLBWyUwf10AAAAC/artificilbrain-ai.gif"; text = "Based on a predictive model trained on stroke patient data from around 5,000 patients, your risk of stroke is LOW."; }
+    else { link =  "https://c.tenor.com/Xvxg2q3dJ5gAAAAC/ai-brain.gif"; text = "Based on a predictive model trained on stroke patient data from around 5,000 patients, your risk of stroke is HIGH. Preventative measures against a stroke can be found here: https://www.cdc.gov/stroke/prevention.htm" ;}
   iframe.setAttribute("src", link);
-  predictionDiv = document.getElementById("strokeRiskResult").appendChild(iframe) ;
+  predictionDiv = document.getElementById("strokeRiskResult") ;
   predictionDiv.innerHTML = '';
   predictionDiv.appendChild(iframe);
-  predictionDiv.insertAdjacentText(text);
+  predictionDiv.insertAdjacentText('beforebegin', text);
+  })
   // (B3) OPTIONAL - HANDLE FETCH ERROR
   .catch((err) => { console.error(err); });
  
