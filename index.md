@@ -76,9 +76,13 @@ Then we calculated the Davies Bouldin and Silhouette Coefficients for each of th
 
 ### Supervised Learning
 
-For the supervised learning portion of this project, our team trained a Neural Network, a Support Vector Machine (SVM), and a Random Forest Classifier on our stroke data. For the SVM, we also trained using multiple types of kernels as well as using hard and soft SVM. We chose these three approaches, especially the Support Vector Machine, given that the labels for this dataset are a single binary value (yes stroke, no stroke) and as such this is a binary classification problem. 
+For the supervised learning portion of this project, our team trained a Neural Network, a Support Vector Machine (SVM), and a Random Forest Classifier on our stroke data. We chose these three approaches, especially the Support Vector Machine, given that the labels for this dataset are a single binary value (yes stroke, no stroke) and as such this is a binary classification problem. 
 The three supervised models for learning that we used predict target values based on the dataset, it is important that the dataset is balanced in order to not skew predictions towards the oversampled part of the data. As discussed in the data preprocessing section, we used SMOTE to balance this data before running the supervised learning models. 
-Each of these models were trained on our data with extensive hyperperameter tuning. We also experienced issues with overfitting in all three models and as such changed the test-train split proportions to find a good ratio that still produced accurate results for both test and training data. 
+For the neural network, we trained networks with 3, 4, and 5 layers in order to make sure we were not overfitting our model. 
+For the SVM, we trained using multiple types of kernels as well as using hard and soft SVM.
+For the random forest classifier, we minimized the maximum layers while also maintaining recall in order to tune the hyperperameters but not overfit the data. The tree and feature importance were then visualized. 
+Each of these models were trained on our data with extensive hyperperameter tuning. We also experienced issues with overfitting in all three models and as such continued to change hyperperameters as well as the test-train split proportions to make sure our results of the highest quality possible.
+The recall of these models was then used to determine the best hyperperameters given that this data is used to predict strokes. It is most important to correctly label and identify cases where the stroke risk is positive. In the case of disease risk, it is best to catch all high risks even when that means more false positives. 
 
 ## Results
 
@@ -226,6 +230,9 @@ The best scores for each performance metric are highlighted in yellow. We includ
  
  ### Neural Network
  
+ ### Random Forest
+ 
+ ### Support Vector Machine
  
 
 ## Discussion
