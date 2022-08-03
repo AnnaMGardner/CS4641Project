@@ -39,9 +39,9 @@ The stroke prediction dataset [1] will be used in this project. There are a tota
 ### Data Preprocessing
 In order to prepare our data for both unsupervised and supervised analysis, we cleaned, standardized, reduced the dimensionality, and synthetically balanced our raw dataset. Some features in the raw data contain string values which are difficult for a machine learning algorithm to process. We converted these feature values into integer value with label encoding. For example, in the “gender” column, the “male” value is converted into 1, while the “female” value is 0.
 We also observed that in our raw data had some missing values for BMI. Given that only 3.9% of this data was missing, we kept this feature and filled any missing values with the mean value of the data column. 
-To better understand the features in the data after label encoding and filling in missing data, we plotted the correlation heat map shown in Figure 1. Features with very high correlation to each other and very low correlation to the target are subject to be dropped to reduce the overall dimensionality of our data. Due to the low correlation value between the “id” and the target ”stroke” we dropped this feature. There was also low correlation between "gender" and the target. Something to note is that we removed the "gender" column before the Isomap dimensionality reduction but not before PCA or T-SNE due to time constraints. 
+To better understand the features in the data after label encoding and filling in missing data, we plotted the correlation heat map shown in Figure 1. Features with very high correlation to each other and very low correlation to the target are subject to be dropped to reduce the overall dimensionality of our data. Due to the low correlation value between the “id” and the target ”stroke” we dropped this feature. There was also low correlation between "gender" and the target. Something to note is that we removed the "gender" column before the Isomap dimensionality reduction and all supervised learning but not before PCA or T-SNE due to time constraints. 
 
-After dropping the “id” feature, we performed SMOTE to balance the data. A major issue in the given dataset is that the raw data is unbalanced. 249 data points identify the chance of stroke, and 4821 data points identify no stroke given that stroke likelihood in the average patient is very low. In order to mitigate issues that arise from only 5% of our datapoints being from a patient who suffered from a stroke, we also rebalanced the dataset using the Synthetic Minority Oversampling Technique (SMOTE) [6]. This process chooses samples with the same target value that are close to eachother in the feature space and selects new datapoints that exist on a line between them. The balanced data oversamples at the adjacent of the minority (positive) datapoints to have the same number of data points as the majority (negative) data (Figure 2 in results). We applied this method before performing PCA and T-SNE dimensionality reduction.
+After dropping all unnecessary features, we performed SMOTE to balance the data. A major issue in the given dataset is that the raw data is unbalanced. 249 data points identify the chance of stroke, and 4821 data points identify no stroke given that stroke likelihood in the average patient is very low. In order to mitigate issues that arise from only 5% of our datapoints being from a patient who suffered from a stroke, we also rebalanced the dataset using the Synthetic Minority Oversampling Technique (SMOTE) [6]. This process chooses samples with the same target value that are close to eachother in the feature space and selects new datapoints that exist on a line between them. The balanced data oversamples at the adjacent of the minority (positive) datapoints to have the same number of data points as the majority (negative) data (Figure 2 in results). We applied this method before performing PCA and T-SNE dimensionality reduction.
 Following these steps, we normalized the data between 1 and -1 in order to ensure that certain variables of different units would not have a disproportionate effect on our unsupervised and supervised learning models.
 
 ### Unsupervised Learning
@@ -73,6 +73,12 @@ The possible combinations of data preprocessing are as follows:
 
 We analyzed the preprocessed datasets using two unsupervised clustering analysis approaches for expectation maximization. First we clustered using K-Means, and then with Gaussian Mixture Modeling (GMM), and determined the optimal number of clusters using the elbow method.
 Then we calculated the Davies Bouldin and Silhouette Coefficients for each of these clusters. 
+
+### Supervised Learning
+
+For the supervised learning portion of this project, our team trained a Neural Network, a Support Vector Machine (SVM), and a Random Forest Classifier on our stroke data. For the SVM, we also trained using multiple types of kernels as well as using hard and soft SVM. We chose these three approaches, especially the Support Vector Machine, given that the labels for this dataset are a single binary value (yes stroke, no stroke) and as such this is a binary classification problem. 
+The three supervised models for learning that we used predict target values based on the dataset, it is important that the dataset is balanced in order to not skew predictions towards the oversampled part of the data. As discussed in the data preprocessing section, we used SMOTE to balance this data before running the supervised learning models. 
+Each of these models were trained on our data with extensive hyperperameter tuning. We also experienced issues with overfitting in all three models and as such changed the test-train split proportions to find a good ratio that still produced accurate results for both test and training data. 
 
 ## Results
 
@@ -215,6 +221,12 @@ The best scores for each performance metric are highlighted in yellow. We includ
            margin-left: auto;
            margin-right: auto;
            width: 60%;"/>
+ 
+ ### Supervised Learning
+ 
+ ### Neural Network
+ 
+ 
 
 ## Discussion
 
@@ -237,6 +249,8 @@ Using these performance metrics we can compare the performance of K-Means, GMM, 
 The first displayed result of our K-Means algorithm 'K-Means 3D TSNE, unbalanced data, 7 clusters' shows a distinct set of clusters that are identified and color coded with the K-Means algorithm. Despite these clear clusters, its performance metrics were not better than that of the 2d PCA clusters. This is likely because of the more spaced-out nature of the values in each cluster as compared to the big group of close data points from PCA. This makes the metrics values lower. Figure 3.2 also shows that these clusters do not necessarily correlate with the density of true target values. This is due to the fact that this data may have datapoints that are close in euclidean distance, but do not reflect individuals with similar risk of stroke. Because clustering is done without target values, the discovered clusters do not always reflect or have any connection to the target values at all. 
 
 Overall, despite taking many approaches to dimensionality reduction and clustering, our results for the Davies Bouldin and Silhouette Coefficients for our clustering algorithms were not great. Our Silhouette Coefficients were closer to 0 than they were to 1, and our Davies Bouldin values were not close to zero. Due to the complexity of disease of our data, unsupervised learning may not be well suited to this particular dataset and target. This dataset and target are more of a classification problem, and as such are better suited for supervised learning which we will implement in the second portion of this project.
+
+### Supervised Learning
 
 Note for midpoint: Since the Professor suggested the Isomap dimension reduction approach during class on Wednesday, we did not have time to visualize how it performs with isolating the target values in 3D. This will be completed and discussed in the final report. 
 Additionally, we have not yet evaluated if the individual clusters found with K-Means or GMM have any significance with stroke likelihood, but will attempt to find any correlation if it exists before the final report. 
