@@ -76,10 +76,10 @@ Then we calculated the Davies Bouldin and Silhouette Coefficients for each of th
 
 ### Supervised Learning
 
-For the supervised learning portion of this project, our team trained a Neural Network, a Support Vector Machine (SVM), and a Random Forest Classifier on our stroke data. We chose these three approaches, especially the Support Vector Machine, given that the labels for this dataset are a single binary value (yes stroke, no stroke) and as such this is a binary classification problem. Neural Networks are specifically great for classification problems as well as support vector machines when it is a binary classification problem. The same also holds for a Random Forest Classifier which we additionally chose given that it could provide us with a feature importance. It is a major goal for our project to determine the most important risk factors for stroke.
-The three supervised models for learning that we used predict target values based on the dataset need the dataset to be balanced in order to not skew predictions towards the oversampled part of the data. As discussed in the data preprocessing section, we used SMOTE to balance this data before running the supervised learning models. 
+For the supervised learning portion of this project, our team trained a Neural Network, a Support Vector Machine (SVM), and a Random Forest Classifier on our stroke data. We chose these three approaches, especially the Support Vector Machine, given that the labels for this dataset are a single binary value (yes stroke, no stroke) and as such this is a binary classification problem. Neural Networks are specifically great for classification problems as well as support vector machines when it is a binary classification problem. The same also holds for a Random Forest Classifier which we additionally chose given that it could provide us with a feature importance. It is a major goal for our project to determine the most important risk factors for stroke, and the feature importance returned from a Random Forest classifier can provide insight into this.
+Supervised models predict target values based on the dataset, as such it is imortant that the dataset be balanced in order to not skew predictions towards the oversampled part of the data. As discussed in the data preprocessing section, we used SMOTE to balance our dataset before running the supervised learning models. 
 For the neural network, we trained networks with 3, 4, and 5 layers in order to make sure we were not overfitting our model. 
-For the SVM, we trained using multiple types of kernels as well as using hard and soft SVM.
+For the SVM, we trained using multiple types of kernels including polynomial, gaussian, and RBF as well as using hard and soft SVM.
 For the random forest classifier, we minimized the maximum depth while also maintaining recall in order to tune the hyperperameters but not overfit the data. The tree and feature importance were then visualized. 
 Each of these models were trained on our data with extensive hyperperameter tuning. We also experienced issues with overfitting in all three models and as such continued to change hyperperameters as well as the test-train split proportions to make sure our results of the highest quality possible.
 Given that this data is used to predict strokes, it is most important to correctly label and identify cases where the stroke risk is positive. In the case of disease risk, we do not want to miss any patients of high risk, even when that means more false positives. Therefore we used recall as the primary measure of the success for our models and to determine the best hyperperameters.
@@ -232,13 +232,13 @@ The best scores for each performance metric are highlighted in yellow. We includ
  <img src="images/neural_network.png" style="display: block; 
            margin-left: auto;
            margin-right: auto;
-           width: 100%;"/>
+           width: 60%;"/>
 <p style="text-align: center;">Figure 8</p>
 
  <img src="images/neural_network_recall.png" style="display: block; 
            margin-left: auto;
            margin-right: auto;
-           width: 100%;"/>
+           width: 60%;"/>
 <p style="text-align: center;">Figure 9 - 5 Layer Neural Network</p>
  
  ### Support Vector Machine
@@ -246,31 +246,31 @@ The best scores for each performance metric are highlighted in yellow. We includ
   <img src="images/svm_results.png" style="display: block; 
            margin-left: auto;
            margin-right: auto;
-           width: 100%;"/>
+           width: 60%;"/>
 <p style="text-align: center;">Figure 10</p>
  
    <img src="images/svm_polynomial.png" style="display: block; 
            margin-left: auto;
            margin-right: auto;
-           width: 100%;"/>
+           width: 60%;"/>
 <p style="text-align: center;">Figure 11</p>
 
   <img src="images/svm_rbf.png" style="display: block; 
            margin-left: auto;
            margin-right: auto;
-           width: 100%;"/>
+           width: 60%;"/>
 <p style="text-align: center;">Figure 12</p>
 
   <img src="images/svm_validation_accuracy.png" style="display: block; 
            margin-left: auto;
            margin-right: auto;
-           width: 100%;"/>
+           width: 60%;"/>
 <p style="text-align: center;">Figure 13</p>
 
   <img src="images/svm_test_ratio.png" style="display: block; 
            margin-left: auto;
            margin-right: auto;
-           width: 100%;"/>
+           width: 60%;"/>
 <p style="text-align: center;">Figure 14</p>
  
  ### Random Forest
@@ -278,37 +278,37 @@ The best scores for each performance metric are highlighted in yellow. We includ
   <img src="images/random_forest_low_max_depth.png" style="display: block; 
            margin-left: auto;
            margin-right: auto;
-           width: 100%;"/>
+           width: 60%;"/>
 <p style="text-align: center;">Figure 15</p>
 
  <img src="images/random_forest_large_max_depth.png" style="display: block; 
            margin-left: auto;
            margin-right: auto;
-           width: 100%;"/>
+           width: 60%;"/>
 <p style="text-align: center;">Figure 16 - note the x axis is off by a factor of 10. It should be 10, 20...</p>
 
  <img src="images/random_forest_large_max_depth_1.png" style="display: block; 
            margin-left: auto;
            margin-right: auto;
-           width: 100%;"/>
+           width: 60%;"/>
 <p style="text-align: center;">Figure 17</p>
 
  <img src="images/random_forest_test_train.png" style="display: block; 
            margin-left: auto;
            margin-right: auto;
-           width: 100%;"/>
+           width: 60%;"/>
 <p style="text-align: center;">Figure 18 - precision values for a 30/70 test split</p>
 
 <img src="images/random_forest_tree.png" style="display: block; 
            margin-left: auto;
            margin-right: auto;
-           width: 100%;"/>
+           width: 60%;"/>
 <p style="text-align: center;">Figure 19 - Random Forest Visualization max depth 3. X[0] is age.</p>
 
 <img src="images/random_forest_feature_importance.png" style="display: block; 
            margin-left: auto;
            margin-right: auto;
-           width: 100%;"/>
+           width: 60%;"/>
 <p style="text-align: center;">Figure 20 - feature importances *note this is different than our final presentation do to a code error</p>
 
 ## Discussion
@@ -331,20 +331,18 @@ Using these performance metrics we can compare the performance of K-Means, GMM, 
 
 The first displayed result of our K-Means algorithm 'K-Means 3D TSNE, unbalanced data, 7 clusters' shows a distinct set of clusters that are identified and color coded with the K-Means algorithm. Despite these clear clusters, its performance metrics were not better than that of the 2d PCA clusters. This is likely because of the more spaced-out nature of the values in each cluster as compared to the big group of close data points from PCA. This makes the metrics values lower. Figure 3.2 also shows that these clusters do not necessarily correlate with the density of true target values. This is due to the fact that this data may have datapoints that are close in euclidean distance, but do not reflect individuals with similar risk of stroke. Because clustering is done without target values, the discovered clusters do not always reflect or have any connection to the target values at all. 
 
-Overall, despite taking many approaches to dimensionality reduction and clustering, our results for the Davies Bouldin and Silhouette Coefficients for our clustering algorithms were not great. Our Silhouette Coefficients were closer to 0 than they were to 1, and our Davies Bouldin values were not close to zero. Due to the complexity of disease of our data, unsupervised learning may not be well suited to this particular dataset and target. This dataset and target are more of a classification problem, and as such are better suited for supervised learning which we will implement in the second portion of this project.
+Overall, despite taking many approaches to dimensionality reduction and clustering, our results for the Davies Bouldin and Silhouette Coefficients for our clustering algorithms were not great. Our Silhouette Coefficients were closer to 0 than they were to 1, and our Davies Bouldin values were not close to zero. Due to the complexity of disease of our data, unsupervised learning may not be well suited to this particular dataset and target. This dataset and target are more of a classification problem, and as such are better suited for supervised learning which we implement in the second portion of this project.
 
 ### Supervised Learning
-In general, the supervised learning portion of this project was much more successful for stroke prediction. This is an expected outcome because our dataset is a binary classification and supervised learning models are often specifically for classification. It is also the case that our dataset has the appropriate labels and thus we are able to train and test with these labels which is the role of supervised learning. 
-
+In general, the supervised learning portion of this project was much more successful for stroke prediction. This is an expected outcome because our dataset requires a binary classification problem. Supervised learning models are often specifically designed for classification. It is also the case that our dataset also has target label values and thus we are able to train, test, and predict with these labels which is the role of supervised learning. 
+ 
 In implementing our Neural Network, we tried multiple combinations of activation functions as well as batch sizes and number of epochs. Our loss function was binary cross-entropy. Given the great results for the 5 layer neural network, our team also implemented a 4 and 3 layer network to ensure that the results were not a result of overfitting (figure 8). Additionally, accuracy and precision for these results remained then same even when raising the test-train split to 40% test data and 60% training data. These great results for the neural network of around 89% accuracy and a peak of 90% recall (figure 9) are not suprising as this is a binary classification problem. Neural networks are able to find complicated relationships between features and prediction. Of note, the variance of each feature in this dataset was quite evenly spread as we discovered in the PCA portion of this project. This means that there is a lot of information in each feature of the stroke prediction dataset. It is likely that many factors play into stroke risk and they may be interrelated in many ways which a neural network can discover through training multiple layers.   
 
-The next supervised learning approach we used was SVM. A support vector machine is particularly suited to this stroke dataset because it is a linear or non-linear binary classifier. Given the many features for our data, we attempted multiple types of kernels for training our model. This includes a simple SVM, Polynomial of varying degrees, gaussian, sigmoid, and radial basis for both soft and hard SVM. 
+The next supervised learning approach we used was SVM. A support vector machine is particularly suited to this stroke dataset because it is a linear or non-linear binary classifier. Given the many features for our data, we attempted multiple types of kernels for training our model. This includes a simple SVM, Polynomial of varying degrees, gaussian, sigmoid, and radial basis for both soft and hard SVM. Similarly to the Neural Network, these models performed extremely well on our dataset with regards to recall, precision, accuracy, and f-1. The radial basis kernel achieved a recall of around 98% (figure 12) which can be explained by the fact that the RBF expands the data into an infinite dimensional space. Given concern for overfitting, we also evaluated how the recall changed as our test-train ratio was changed. As seen in figure 14, the scores still remain around 90% even when the data is reduced to 70% test data. This suggests that the data is not overfitting, but instead this model is a very great predictor of stroke risk. As such, we used this model for our interactive web form to predict stroke risk. Many other kernel types for SVM performed at around 85-90% recall including the gaussian kernel and polynomial kernels (figure 11). These performances were marginally better than the neural network likely due to the fact that we have a small dataset on which to train the network and an svm does not require as much data to train. 
 
-
-
-Note for midpoint: Since the Professor suggested the Isomap dimension reduction approach during class on Wednesday, we did not have time to visualize how it performs with isolating the target values in 3D. This will be completed and discussed in the final report. 
-Additionally, we have not yet evaluated if the individual clusters found with K-Means or GMM have any significance with stroke likelihood, but will attempt to find any correlation if it exists before the final report. 
+Finally, we trained a Random Forest Classifier in order to glean insight into the importance of different factors in stroke risk. As can be seen in figure 16. These results are so accurate given overfitting. Since the max depth of the trees is so high, almost all datapoints in the dataset have an individual path to the prediction. As such, we reduced the max depth as seen in figure 15. These results were still within 85-90% recall, similar to that of SVM and our neural network because they are all complex classification algorithms. We discovered that age, glucose level, and BMI were the three most important features when deciding stroke risk. 
  
+Overall, all three supervised algorithms performed exceptionally well on this dataset. It is likely that this occured given the binary nature of this dataset. Given such success, we created an online predcitor to help individuals decide of they are at high risk of stroke and should take preventative measures. 
 
 ## References
 [1]“Stroke prediction dataset,” [Online]. Available: https://www.kaggle.com/fedesoriano/stroke-prediction-dataset.  
