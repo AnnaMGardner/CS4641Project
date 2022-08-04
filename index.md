@@ -234,7 +234,16 @@ The best scores for each performance metric are highlighted in yellow. We includ
            margin-right: auto;
            width: 100%;"/>
 <p style="text-align: center;">Figure 8</p>
+
  <img src="images/neural_network_recall.png" style="display: block; 
+           margin-left: auto;
+           margin-right: auto;
+           width: 100%;"/>
+<p style="text-align: center;">Figure 9 - 5 Layer Neural Network</p>
+ 
+ ### Support Vector Machine
+ 
+  <img src="images/svm_results.png" style="display: block; 
            margin-left: auto;
            margin-right: auto;
            width: 100%;"/>
@@ -242,8 +251,41 @@ The best scores for each performance metric are highlighted in yellow. We includ
  
  ### Random Forest
  
- ### Support Vector Machine
- 
+  <img src="images/random_forest_low_max_depth.png" style="display: block; 
+           margin-left: auto;
+           margin-right: auto;
+           width: 100%;"/>
+<p style="text-align: center;">Figure 10</p>
+
+ <img src="images/random_forest_large_max_depth.png" style="display: block; 
+           margin-left: auto;
+           margin-right: auto;
+           width: 100%;"/>
+<p style="text-align: center;">Figure 11 - note the x axis is off by a factor of 10. It should be 10, 20...</p>
+
+ <img src="images/random_forest_large_max_depth_1.png" style="display: block; 
+           margin-left: auto;
+           margin-right: auto;
+           width: 100%;"/>
+<p style="text-align: center;">Figure 12</p>
+
+ <img src="images/random_forest_test_train.png" style="display: block; 
+           margin-left: auto;
+           margin-right: auto;
+           width: 100%;"/>
+<p style="text-align: center;">Figure 13 - precision values for a 30/70 test split</p>
+
+<img src="images/random_forest_tree.png" style="display: block; 
+           margin-left: auto;
+           margin-right: auto;
+           width: 100%;"/>
+<p style="text-align: center;">Figure 14 - Random Forest Visualization max depth 3. X[0] is age.</p>
+
+<img src="images/random_forest_feature_importance.png" style="display: block; 
+           margin-left: auto;
+           margin-right: auto;
+           width: 100%;"/>
+<p style="text-align: center;">Figure 15 - feature importances *note this is different than our final presentation do to a code error</p>
 
 ## Discussion
 
