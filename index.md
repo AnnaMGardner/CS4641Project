@@ -1,4 +1,4 @@
-Anna Gardner (Report and Stroke Predictor), Emma Long (K-Means), Zhenming Liu (Data Preprocessing), Yawen Tan (GMM)
+Anna Gardner, Emma Long, Zhenming Liu, Yawen Tan
 
 <img src="Stroke_Web.png" style="display: block; 
            margin-left: auto;
